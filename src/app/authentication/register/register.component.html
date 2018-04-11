@@ -1,0 +1,95 @@
+<div class="container mainDiv">
+    <div class="overlay">
+     <div class="text-center  center-block formDiv">
+        <h1 class="text-center header" style="margin: 20px">Create new account</h1>
+
+
+        <form [formGroup]="form"  (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+          <div class="input-group-shift my-2" [ngClass]="validateGroup('firstName')">
+              <label for="firstname" class="label-shift">First name</label>
+              <input type="text" id="firstname" formControlName="firstName" class="shift-input" placeholder="enter your first name here...">
+            <div *ngIf="validateControl('firstName')" class="">
+              <p *ngIf="validateError('firstName','maxlength')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter maximum of 20 characters</p>
+              <p *ngIf="validateError('firstName','minlength')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter minimum of 3 characters</p>
+              <p *ngIf="validateError('firstName','required')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
+            </div>
+          </div>
+      
+          <div class="input-group-shift my-2" [ngClass]="validateGroup('lastName')">
+              <label for="lastname" class="label-shift">Last name</label>
+      
+              <input type="text" id="lastname" formControlName="lastName" class="shift-input" placeholder=" enter your last name here...">
+            <div *ngIf="validateControl('lastName')" class="">
+              <p *ngIf="validateError('lastName','maxlength')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter maximum of 20 characters</p>
+              <p *ngIf="validateError('lastName','minlength')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter minimum of 3 characters</p>
+              <p *ngIf="validateError('lastName','required')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
+            </div>
+          </div>
+      
+          <div *ngIf="!invitedEmail" class="input-group-shift my-2" [ngClass]="validateGroup('email')">
+            <label for="username" class="label-shift"> Email</label>
+      
+            <input type="text" formControlName="email" class="shift-input" placeholder="enter your email here...">
+            <div *ngIf="validateControl('email')" class="">
+              <p *ngIf="validateError('email','pattern')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter a valid email format</p>
+              <p *ngIf="validateError('email','required')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
+            </div>
+          </div>
+          <div *ngIf="invitedEmail" class="input-group-shift my-2">
+            <label for="username" class="label-shift">current email </label>
+            <input type="text" [value]="invitedEmail" class="shift-input" readonly>
+          </div>
+      
+      
+          <div class="input-group-shift my-2" [ngClass]="validateGroup('password')">
+            <label for="username" class="label-shift"> Password </label>
+            <input type="password" formControlName="password" class="shift-input" placeholder="enter your Password here...">
+            <div *ngIf="validateControl('password')" class="">
+              <p *ngIf="validateError('password','minlength')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter minimum of 8 characters</p>
+              <p *ngIf="validateError('password','required')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
+            </div>
+          </div>
+      
+      
+          <div class="input-group-shift my-2" [ngClass]="validateGroup('rePassword')">
+            <label for="repass" class="label-shift"> Re-enter Password </label>
+      
+            <input type="password" id="repass" formControlName="rePassword" class="shift-input" placeholder="repeat password...">
+            <div *ngIf="validateControl('rePassword')" class="">
+              <p *ngIf="validateError('rePassword','matchFailed')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Passwords do not match</p>
+              <p *ngIf="validateError('rePassword','required')" class="text-left validate-shift"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
+            </div>
+          </div>
+          <div class="input-group-shift my-2" [ngClass]="validateGroup('profile_photo')">
+              <label class="label-shift">Choose profile</label>
+                <label for="profile" style="text-align: center" class="shift-input"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
+                  Browse</label>
+                <input type="file" formControlName="profile_photo" style="display: none" id="profile" >
+            </div>
+          <div *ngIf="asyncErrorMsg" class="">
+            <p class="text-left validate-shift"><i
+              class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{asyncErrorMsg}}</p>
+          </div>
+          <div class="card-footer d-flex flex-row-reverse">
+              <button  class="ml-2 px-3 py-2 shift-submit" [ladda]="laddaLoader" data-spinner-color="grey"
+                      [disabled]="form.invalid" type="submit" (click)="onSubmit()">
+                <span>Submit</span>
+              </button>
+            </div>    
+        </form>
+      </div>
+        
+  </div>
+  </div>

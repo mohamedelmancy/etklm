@@ -1,0 +1,68 @@
+@import '../../scss/main';
+
+.center-block{
+    background-color: #d5d0d7;    
+    color: rgb(148, 141, 141);
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+.language{
+    padding: 0 10px;
+    // color: $primaryColor
+}
+.navbar-inverse {
+    background-color: #10365a;
+    border: none;
+    border-radius: 0;
+}
+.navbar-brand{
+    font-weight: bold;
+    font-size: 30px;
+    transition: all .7s ease-in-out;     
+}
+.navbar-brand:hover{
+-webkit-transform:scale(1.1,1.1);
+-o-transform:scale(1.1,1.1);
+ -moz-transform:scale(1.1,1.1);
+  transform:scale(1.1,1.1);
+}
+
+/* @media (min-width: 768px) {
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand 
+{
+    margin-left: 100px; 
+}
+} */
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus,
+ .navbar-inverse .navbar-nav>.active>a:hover {
+     background-color: transparent
+ }
+ a:focus, a:hover{
+     text-decoration: none;
+     color: #10365a
+ }
+ .app-navbar {
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+ .navbar-inverse .navbar-collapse{
+     border: none;
+    //  height: 100vh;
+    -webkit-overflow-scrolling: touch;
+     max-height: inherit;          
+ }
+ .navbar-collapse.in {
+    overflow-y: auto;
+}
+@media (max-width: 768px) {
+    .center-block{
+      margin-top: 83px
+    }
+  }
+@media (max-width: 768px) {
+    .center-block{
+      margin-top: 83px
+    }
+  }
