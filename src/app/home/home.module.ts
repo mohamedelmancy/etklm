@@ -11,6 +11,7 @@ import {HomeRouting} from './home.routing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {BusyModule} from 'angular2-busy';
+import {LoginComponent} from "../authentication/login/login.component";
 
 // import {SpeechRecognitionService} from '../main-layout/speech-recognition-service.service'
 
@@ -27,7 +28,8 @@ import {BusyModule} from 'angular2-busy';
 
   ],
 
-  declarations: [ HomeComponent, MessagesComponent, SettingsComponent, AboutComponent, ContactUsComponent
-  ]
+  declarations: [ HomeComponent, MessagesComponent, SettingsComponent, AboutComponent, ContactUsComponent,
+  ],
+  providers: [LoginComponent]
 })
 export class HomeModule { }

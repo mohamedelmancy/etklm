@@ -3,7 +3,8 @@ import {Subscription} from 'rxjs/Subscription';
 import {Validation} from '../shared/validation';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import { SpeechRecognitionService } from '../main-layout/speech-recognition-service.service';
+import RawMediaRecorder from '../RawMediaRecorder';
+
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
@@ -17,24 +18,22 @@ export class MessagesComponent extends Validation implements OnDestroy, OnInit {
   replay = false;
   isVoice = true;
   isText = true;
-  showSearchButton: boolean;
-    speechData: string;
-  constructor(private iformBuilder: FormBuilder, private irouter: Router,
-     private speechRecognitionService: SpeechRecognitionService) {
+  recorder: any;
+  recording = false;
+  source: any;
+  constructor(private iformBuilder: FormBuilder, private irouter: Router) {
     super(iformBuilder, irouter);
-    this.showSearchButton = true;
-    this.speechData = '';
-   }
+    this.recorder = new RawMediaRecorder(new AudioContext());
+  }
 
-   ngOnInit() {
+  ngOnInit() {
     this.form = this.formBuilder.group({
       replay: ['', []]
     });
     console.log('Hellooooo');
   }
   ngOnDestroy() {
-    this.speechRecognitionService.DestroySpeechObject();
-}
+  }
   onSubmit() {
     this.laddaLoader = true;
   }
@@ -53,29 +52,26 @@ export class MessagesComponent extends Validation implements OnDestroy, OnInit {
     this.recrived = false;
     this.sent = false;
   }
-  activateSpeechSearchMovie(): void {
-    this.showSearchButton = false;
-
-    this.speechRecognitionService.record()
-        .subscribe(
-        // listener
-        (value) => {
-            this.speechData = value;
-            console.log(value);
-        },
-        // errror
-        (err) => {
-            console.log(err);
-            if (err.error === 'no-speech') {
-                console.log('--restatring service--');
-                this.activateSpeechSearchMovie();
-            }
-        },
-        // completion
-        () => {
-            this.showSearchButton = true;
-            console.log('--complete--');
-            this.activateSpeechSearchMovie();
-        });
-}
+  startRecorder() {
+    this.recorder.start();
+      this.recorder.onStart = () => {
+        this.recording = true;
+      };
+      this.recorder.onData = data => {
+      const channels  = data.getChannelData(0);
+      this.source = this.recorder.source;
+         console.log('data', data);
+          console.log('channels', channels);
+      };
+  }
+  startToListen() {
+    this.recorder.voice.start();
+    this.recorder.source.start();
+  }
+  stopRecorder() {
+    this.recorder.stop();
+    this.recorder.onStop = () => {
+      this.recording = false;
+    };
+  }
 }

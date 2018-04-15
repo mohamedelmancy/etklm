@@ -145,6 +145,8 @@
     border: none;
     border-style: none;
     width: 70%;
+    width: 50%;
+    margin-left: 20px;
   }
   .input-group-shift input::placeholder {
     font-size: 12px;
@@ -176,4 +178,28 @@
 .media-body{
   padding-top: 30px;
   padding-right: 10px;
+}
+.microphone, .notActive{
+  width: 5%;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #00AA88;
+  transition: all .2s ease-in-out;
+}
+.microphone:hover{
+}
+.active{
+  transform: scaleZ(1.5);
+  background-color: red;
+}
+.fa-stop{
+  background-color: #d6b1b1;
+  color: #000;
+
+}
+.btn-danger{
+  border:  none;
+}
+.fa-stop:hover{
+  color: red;
 }

@@ -20,9 +20,8 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import {RegisterComponent} from './authentication/register/register.component';
 import {BusyModule} from 'angular2-busy';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
+
 // import {AccordionModule, BsDropdownModule, CarouselModule, ModalModule, TooltipModule} from 'ngx-bootstrap';
-import { AudioFilesComponent } from './audio-files/audio-files.component';
-import {SpeechRecognitionService} from './main-layout/speech-recognition-service.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,8 @@ import {SpeechRecognitionService} from './main-layout/speech-recognition-service
     LandingPageComponent,
     MainLayoutComponent,
     RegisterComponent,
-    AudioFilesComponent
+
+
     ],
   imports: [
     BrowserModule, AppRouting,
@@ -52,7 +52,7 @@ import {SpeechRecognitionService} from './main-layout/speech-recognition-service
     // CarouselModule.forRoot(),
   ],
   providers: [LoginComponent,
-     RouterModule, HomeService, SpeechRecognitionService, LoginGuard, CheckUserService, LandingGuard , LoginService, RegisterComponent],
+     RouterModule, HomeService, LoginGuard, CheckUserService, LandingGuard , LoginService, RegisterComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

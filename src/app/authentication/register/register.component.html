@@ -17,10 +17,10 @@
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
             </div>
           </div>
-      
+
           <div class="input-group-shift my-2" [ngClass]="validateGroup('lastName')">
               <label for="lastname" class="label-shift">Last name</label>
-      
+
               <input type="text" id="lastname" formControlName="lastName" class="shift-input" placeholder=" enter your last name here...">
             <div *ngIf="validateControl('lastName')" class="">
               <p *ngIf="validateError('lastName','maxlength')" class="text-left validate-shift"><i
@@ -31,11 +31,11 @@
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
             </div>
           </div>
-      
+
           <div *ngIf="!invitedEmail" class="input-group-shift my-2" [ngClass]="validateGroup('email')">
-            <label for="username" class="label-shift"> Email</label>
-      
-            <input type="text" formControlName="email" class="shift-input" placeholder="enter your email here...">
+            <label for="email" class="label-shift"> Email</label>
+
+            <input type="text" formControlName="email" class="shift-input" id="email" placeholder="enter your email here...">
             <div *ngIf="validateControl('email')" class="">
               <p *ngIf="validateError('email','pattern')" class="text-left validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter a valid email format</p>
@@ -43,15 +43,10 @@
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
             </div>
           </div>
-          <div *ngIf="invitedEmail" class="input-group-shift my-2">
-            <label for="username" class="label-shift">current email </label>
-            <input type="text" [value]="invitedEmail" class="shift-input" readonly>
-          </div>
-      
-      
+
           <div class="input-group-shift my-2" [ngClass]="validateGroup('password')">
-            <label for="username" class="label-shift"> Password </label>
-            <input type="password" formControlName="password" class="shift-input" placeholder="enter your Password here...">
+            <label for="password" class="label-shift"> Password </label>
+            <input type="password" formControlName="password" class="shift-input" id="password" placeholder="enter your Password here...">
             <div *ngIf="validateControl('password')" class="">
               <p *ngIf="validateError('password','minlength')" class="text-left validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter minimum of 8 characters</p>
@@ -59,11 +54,11 @@
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
             </div>
           </div>
-      
-      
+
+
           <div class="input-group-shift my-2" [ngClass]="validateGroup('rePassword')">
             <label for="repass" class="label-shift"> Re-enter Password </label>
-      
+
             <input type="password" id="repass" formControlName="rePassword" class="shift-input" placeholder="repeat password...">
             <div *ngIf="validateControl('rePassword')" class="">
               <p *ngIf="validateError('rePassword','matchFailed')" class="text-left validate-shift"><i
@@ -87,9 +82,9 @@
                       [disabled]="form.invalid" type="submit" (click)="onSubmit()">
                 <span>Submit</span>
               </button>
-            </div>    
+            </div>
         </form>
       </div>
-        
+
   </div>
   </div>
