@@ -21,6 +21,7 @@ export class MessagesComponent extends Validation implements OnDestroy, OnInit {
   recorder: any;
   recording = false;
   source: any;
+  doneRecording = false;
   constructor(private iformBuilder: FormBuilder, private irouter: Router) {
     super(iformBuilder, irouter);
     this.recorder = new RawMediaRecorder(new AudioContext());
@@ -36,6 +37,8 @@ export class MessagesComponent extends Validation implements OnDestroy, OnInit {
   }
   onSubmit() {
     this.laddaLoader = true;
+    this.replay = false;
+    console.log('submiteed');
   }
   receivedClicked() {
     this.recrived = true;
@@ -65,13 +68,14 @@ export class MessagesComponent extends Validation implements OnDestroy, OnInit {
       };
   }
   startToListen() {
-    this.recorder.voice.start();
-    this.recorder.source.start();
+    // this.recorder.voice.start();
+    // this.recorder.source.start();
   }
   stopRecorder() {
+    this.recording = false;
+    this.doneRecording = true;
     this.recorder.stop();
     this.recorder.onStop = () => {
-      this.recording = false;
     };
   }
 }

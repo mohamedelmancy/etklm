@@ -39,7 +39,7 @@
                       <ul class=" list-unstyled">
                           <li  class="media list-group-item p-a" style="border-top: none">
                               <div class="media-body">
-                                  <span style="padding-bottom: 5px;" class="pull-right close" onclick="Delete();return false;" aria-hidden="true"><i tooltip="delete" class="fa fa-trash-o" ></i></span>
+                                  <span style="padding-bottom: 5px;" class="pull-right close" onclick="Delete();return false;" aria-hidden="true"><i tooltip="delete" class="fa fa-trash" ></i></span>
                                   <!-- <span style="padding-bottom: 5px; padding-right: 10px; font-size: large" class="pull-right"></span> -->
                                   <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:24px"></i>
                                   <!-- <i *ngIf="isText" class="fa fa-envelope pull-left" style="font-size:20px"></i> -->
@@ -50,29 +50,23 @@
                                       <div class="mark-fav action-favorite btn btn-primary-outline btn-xs pull-right" style="font-size: smaller">
                                         <i tooltip="favorite" class="fa fa-heart-o" style="font-size:22px;" ></i></div>
                                   </small>
-                                  <button (click)="replay = !replay;" class="replay shift-submit" style="margin-left: 5px; margin-bottom: 2px">Replay</button>
+                                  <button (click)="replay = !replay;" class="replay shift-submit" style="margin-left: 5px; margin-bottom: 2px"><span *ngIf="!replay">Replay</span><span *ngIf="replay">Cancel</span></button>
                             <div class="form-replay" *ngIf="replay">
+                              <img  [ngClass]="{ 'active': recording} "  class="fa-microphone microphone " (click)="startRecorder()" src="../../assets/avatar/microphone%20(1).png" >
+                              <a  [hidden]="!recording" class="fa fa-stop btn btn-danger " (click)="stopRecorder()" >Stop</a>
+                              <audio class="mt-5" *ngIf="doneRecording" controls>
+                                <source src="assets/dd.mp4" type="audio/wav">
+                                Your browser does not support the audio element.
+                              </audio>
                               <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
                                   <div class="input-group-shift mb-3" style="margin-bottom: 2px" [ngClass]="validateGroup('replay')">
-                                    <!-- <label for="reset" class="label-shift">Email</label> -->
-                                    <!--<button md-raised-button color="primary"(click) ="stopRecording()"> Stop</button>-->
-                                    <!--<app-listen *ngIf="speech.speechSupported"></app-listen>-->
-                                     <img  [ngClass]="{ 'active': recording} "  class="fa-microphone microphone" (click)="startRecorder()" src="../../assets/avatar/microphone%20(1).png" >
-                                      <button  [disabled]="!recording" class="fa fa-stop btn btn-danger" (click)="stopRecorder()" >Stop</button>
-
-                                    <input id="replay" type="text" formControlName="replay"  class="shift-input" placeholder="Your Message">
-                                    <!--<audio *ngIf="!recording" controls>-->
-                                      <!--<source [src]="myWav.mp3" type="audio/wav">-->
-                                      <!--Your browser does not support the audio element.-->
-                                    <!--</audio>-->
-                                    <button class="btn btn-primary" (click)="startToListen()" >listen</button>
+                                    <input id="replay" type="text"  formControlName="replay"  class="shift-input" placeholder="Your Message">
                                            <div *ngIf="validateControl('replay')" class="error text-left ">
-
                                             </div>
-                                             <button class="ml-2 px-3 py-2 shift-submit  mt-5" [ladda]="laddaLoader"
+                                             <button class="ml-2  py-2 shift-submit  mt-5" [ladda]="laddaLoader"
                                             data-spinner-color="grey"
-                                            style="line-height: 24px;height: 28px;"
-                                              [disabled]="form.invalid || form.pristine || form.untouched" (click)="onSubmit()">Send
+                                                     [disabled]="form.pristine && !recording"
+                                               (click)="onSubmit()">Send
                                       </button>
 
                                   </div>

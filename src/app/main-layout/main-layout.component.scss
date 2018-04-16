@@ -8,9 +8,24 @@
     bottom: 0;
     width: 100%;
 }
+center-block a {
+  color: $primaryColor;
+}
+a:not([href]):not([tabindex]) {
+  color: $primaryColor;
+  text-decoration: none;
+  cursor: pointer;
+}
 .language{
     padding: 0 10px;
     // color: $primaryColor
+}
+.navbar-brand[_ngcontent-c1] {
+  font-weight: initial;
+  font-size: 30px;
+  font-family: cursive;
+  -webkit-transition: all .7s ease-in-out;
+  transition: all .7s ease-in-out;
 }
 .navbar-inverse {
     background-color: #10365a;

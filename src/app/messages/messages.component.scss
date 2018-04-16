@@ -203,3 +203,13 @@
 .fa-stop:hover{
   color: red;
 }
+@media (max-width: 1000px) {
+  .microphone{
+    width: 50px;
+  }
+}
+@media (max-width: 1000px) {
+  .replay{
+    width: 50px;
+  }
+}

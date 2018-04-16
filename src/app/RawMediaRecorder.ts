@@ -88,7 +88,7 @@ class RawMediaRecorder {
   }
 
   /** Stop recording */
-  Stop(dataCallback) {
+  stop(dataCallback) {
     this.stream.getTracks().forEach(track => track.stop());
     this.source.disconnect();
     this.analyser.disconnect();
@@ -107,7 +107,7 @@ class RawMediaRecorder {
 
   /** Cancel recording, onstop will be called but not ondata */
   cancel() {
-    this.Stop(() => {
+    this.stop(() => {
       /* noop */
     });
   }
