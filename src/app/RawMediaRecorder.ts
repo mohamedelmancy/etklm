@@ -9,7 +9,8 @@ class RawMediaRecorder {
   private buffers: Float32Array[];
   private script?: ScriptProcessorNode;
   public analyser?: AnalyserNode;
- public voice: any;
+  public voice: any;
+  public  songBuffer: any;
   /** Funciton to call when recording started */
   onStart: () => void;
   /** Funciton to call when recording stoped */
@@ -18,6 +19,7 @@ class RawMediaRecorder {
   onData: (AudioBuffer) => void;
 
   constructor(audioContext: AudioContext, bufferSize = 4096) {
+    // this.loadSound();
     this.ctx = audioContext;
     this.bufferSize = bufferSize;
 
@@ -28,6 +30,30 @@ class RawMediaRecorder {
     this.buffers = [];
   }
 
+   loadSound(url) {
+     var context = new AudioContext();
+    let  request = new XMLHttpRequest();
+    request.open('GET', url, true);
+    request.responseType = 'arraybuffer';
+
+    // Decode asynchronously
+    request.onload = function() {
+      context.decodeAudioData(request.response, function(buffer) {
+        this.songBuffer = buffer;
+      });
+    }
+    request.send();
+  }
+   playSound(songBuffer) {
+    var source = this.ctx.createBufferSource();
+    // creates a sound source
+    source.buffer = this.songBuffer;
+    // tell the source which sound to play
+    source.connect(this.ctx.destination);
+    // connect the source to the context's destination (the speakers)
+    source.start(0);
+    // play the source now
+  }
   /** Start recording */
   start() {
     this.ctx
@@ -52,7 +78,7 @@ class RawMediaRecorder {
     analyser.connect(script);
     script.connect(this.ctx.destination);
     this.voice = this.ctx.createBufferSource();
-    this.voice.buffer = this.buffers;
+    // this.voice.buffer = this.buffers;
     this.voice.connect(this.ctx.destination);
     this.stream = stream;
     this.source = source;
@@ -62,7 +88,7 @@ class RawMediaRecorder {
   }
 
   /** Stop recording */
-  stop(dataCallback) {
+  Stop(dataCallback) {
     this.stream.getTracks().forEach(track => track.stop());
     this.source.disconnect();
     this.analyser.disconnect();
@@ -81,7 +107,7 @@ class RawMediaRecorder {
 
   /** Cancel recording, onstop will be called but not ondata */
   cancel() {
-    this.stop(() => {
+    this.Stop(() => {
       /* noop */
     });
   }
