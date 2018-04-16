@@ -1,0 +1,179 @@
+@import '../../../scss/main';
+
+.mainDiv {
+    /* //background: radial-gradient(at 100% 100%, #cd8935, #fafbff) fixed;
+    //background: url(../../../assets/img/bg-pattern.png) repeat;
+    background-color: #274e72;
+    // background: linear-gradient(to bottom right, #011e38, #3e3958 50%, #466389); */
+   background: url('../../../assets/avatar/wave.jpg') no-repeat top center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  position: relative ;
+  width: 100%
+  }
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .9)
+  }
+  .etklm{
+    font-weight: bold;
+    font-size: 35;
+    color: #10365a;
+    font-family: Arial, Helvetica, sans-serif;
+     /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif */
+  }
+  .formDiv {
+    width: 60%;
+    background-color: #f8fafa;
+    padding: 51px;
+    margin:  auto;
+    margin-top: 80px;
+    border-radius: 5px;
+  }
+  .shift-input{
+    padding: 4px 7px 2px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(50,50,93,.16), 0 0 0 1px rgba(50,151,211,0), 0 0 0 2px rgba(50,151,211,0), 0 1px 1px rgba(0,0,0,.08);
+    color: $primaryColor;
+    cursor: text;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: none;
+    border-style: none;
+    width:70%;
+  }
+  .label-shift{
+    width: 28%;
+    text-align: left;
+    padding-right: 8px;
+  }
+  .card-header-shift{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 16px;
+    padding-top: 16px;
+    box-shadow: inset 0 -1px #e6ebf1;
+    background-color: #ffffff;
+
+  }
+  .card-header-shift h5{
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .card-block-shift{
+    margin: 0;
+    padding: 10px 0;
+    background-color: #f6f9fc;
+    margin-bottom: 2px;
+
+    border: 0;
+  }
+  .card-footer-shift{
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #fff;
+    padding-bottom: 12px;
+    padding-top: 12px;
+  }
+  .input-group-shift input::placeholder{
+    font-size: 12px;
+    color: rgba(0,0,0,0.3);
+  }
+  .input-group-shift{
+    margin-bottom: 20px;
+  }
+  .shift-input-upload{
+    padding: 4px 7px 2px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(50,50,93,.16), 0 0 0 1px rgba(50,151,211,0), 0 0 0 2px rgba(50,151,211,0), 0 1px 1px rgba(0,0,0,.08);
+    color: $primaryColor;
+    cursor: text;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    border: none;
+    border-style: none;
+  }
+  .shift-submit{
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #ffffff;
+    box-shadow: 0 0 0 1px rgba(50,50,93,.1), 0 2px 5px 0 rgba(50,50,93,.06), 0 1px 1px 0 rgba(0,0,0,.04), 0 1px 2px 0 rgba(0,0,0,.04), 0 0 0 0 transparent;
+    border-style: none;
+    color: rgba(0,0,0,0.7);
+    width: 20%;
+    margin-bottom: 0;
+    height: 35px;
+    margin-top: 20px;
+    //float: right;
+  }
+  .validate-shift{
+    color:  #e25950;
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-right: 15px;
+    font-size: 12px;
+
+  }
+  @media (max-width: 900px) {
+    .formDiv{
+      width: 70%
+    }
+  }
+  @media (max-width: 700px) {
+    .formDiv{
+      width: 75%;
+      height: 85%;
+    }
+  }
+  @media (max-width: 540px) {
+    .formDiv{
+      width: 80%;
+      height: 86%;
+    }
+    .label-shift{
+        font-size: 12px
+    }
+  }
+  @media (max-width: 420px) {
+    .formDiv{
+      width: 90%;
+      height: 85%;
+    }
+    .label-shift{
+        font-size: 11px
+    }
+  }
+  @media (max-width: 400px) {
+    .formDiv{
+      width: 100%
+    }
+    .header{
+        font-size: 19px;
+    }
+    .label-shift{
+        font-size: 11px
+    }
+    .shift-submit{
+        width: 30%
+    }
+  }

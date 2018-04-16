@@ -1,0 +1,88 @@
+
+<div class="container view">
+    <div class="row">
+                <div class="text-center nain info col-md-12" >
+                    <img  class="profile-img" style="cursor: pointer" src="../../assets/avatar/avatar.png">
+                        <h5 class="panel-title">
+                            <span class="text-inheritr">
+                            <a ><span style="font-size:medium; color:white" class="icon icon-cog"> </span></a>User_name</span>
+                        </h5>
+                      <br>
+                    <span class="text-inherit" style="font-weight:bold"><a >Message my self</a></span>
+                </div>
+                <div class="text-center data col-md-12" >
+                  <!-- <div class="text-center col-lg-6  col-md-6 col-sm-6 col-xs-6 ">
+                    <img  class="voice-img" tooltip="see voice messages" style="cursor: pointer" src="../../assets/avatar/voice.png">
+                  </div>
+                  <div class="text-center col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <img  class="text-img" tooltip="see text messages" style="cursor: pointer" src="../../assets/avatar/message.png">
+                    </div> -->
+                    <div class="header text-center col-lg-12 ">
+                      <span>
+                      <i class="fa fa-comments" style="font-size:36px; margin: 0"></i>
+                      </span>
+                      &nbsp;&nbsp;
+                      <span class="h2">All Messages</span>
+                    </div>
+                    <div class="messages text-left col-lg-12 ">
+                            <div class="tabs-nav">
+                              <div class="justify-content-between">
+                                <ul   class="" style="margin-bottom: 0px;">
+                                <li class="wow pulse" data-wow-duration="5s"  (click)="receivedClicked()" [ngClass]="{'active' : recrived}" >Received</li>
+                                <li class="wow pulse" data-wow-duration="5s"  (click)="favoriteClicked()" [ngClass]="{'active' : favorite}" >Favorite</li>
+                                <li class="wow pulse" data-wow-duration="5s"  (click)="sentClicked()" [ngClass]="{'active' : sent}" >Sent</li>
+                              </ul>
+                              </div>
+                        </div>
+                    </div>     <!-- end header of messages-->
+                    <div [ngBusy]="busy" class="messageContent text-left col-lg-12 ">
+                      <ul class=" list-unstyled">
+                          <li  class="media list-group-item p-a" style="border-top: none">
+                              <div class="media-body">
+                                  <span style="padding-bottom: 5px;" class="pull-right close" onclick="Delete();return false;" aria-hidden="true"><i tooltip="delete" class="fa fa-trash-o" ></i></span>
+                                  <!-- <span style="padding-bottom: 5px; padding-right: 10px; font-size: large" class="pull-right"></span> -->
+                                  <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:24px"></i>
+                                  <!-- <i *ngIf="isText" class="fa fa-envelope pull-left" style="font-size:20px"></i> -->
+                                  <span style="white-space: pre-wrap; word-wrap: break-word; white-space: pre-line; overflow: hidden; display: block;">Message content</span><br>
+                                  <small class="text-muted">
+                                      <span >Current date</span>&nbsp;
+                                      -&nbsp;<a  aria-hidden="true" onclick="Report();return false;" style="font-size: smaller">Report</a>
+                                      <div class="mark-fav action-favorite btn btn-primary-outline btn-xs pull-right" style="font-size: smaller">
+                                        <i tooltip="favorite" class="fa fa-heart-o" style="font-size:22px;" ></i></div>
+                                  </small>
+                                  <button (click)="replay = !replay;" class="replay shift-submit" style="margin-left: 5px; margin-bottom: 2px">Replay</button>
+                            <div class="form-replay" *ngIf="replay">
+                              <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+                                  <div class="input-group-shift mb-3" style="margin-bottom: 2px" [ngClass]="validateGroup('replay')">
+                                    <!-- <label for="reset" class="label-shift">Email</label> -->
+                                    <!--<button md-raised-button color="primary"(click) ="stopRecording()"> Stop</button>-->
+                                    <!--<app-listen *ngIf="speech.speechSupported"></app-listen>-->
+                                     <img  [ngClass]="{ 'active': recording} "  class="fa-microphone microphone" (click)="startRecorder()" src="../../assets/avatar/microphone%20(1).png" >
+                                      <button  [disabled]="!recording" class="fa fa-stop btn btn-danger" (click)="stopRecorder()" >Stop</button>
+
+                                    <input id="replay" type="text" formControlName="replay"  class="shift-input" placeholder="Your Message">
+                                    <audio controls>
+                                      <source [src]="source" type="audio/*">
+                                      Your browser does not support the audio element.
+                                    </audio>
+                                    <button class="btn btn-primary" (click)="startToListen()" >listen</button>
+                                           <div *ngIf="validateControl('replay')" class="error text-left ">
+
+                                            </div>
+                                             <button class="ml-2 px-3 py-2 shift-submit  mt-5" [ladda]="laddaLoader"
+                                            data-spinner-color="grey"
+                                            style="line-height: 24px;height: 28px;"
+                                              [disabled]="form.invalid || form.pristine || form.untouched" (click)="onSubmit()">Send
+                                      </button>
+
+                                  </div>
+
+                                </form>
+                              </div>
+                              </div>
+                          </li>
+                      </ul>
+                    </div>        <!-- end content of messages-->
+                </div> <!-- end of main-->
+          </div> <!-- end ofrow -->
+    </div> <!-- end of messages-->

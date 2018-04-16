@@ -1,0 +1,58 @@
+<div class="container mainDiv">
+    <div class="overlay">
+     <div class="text-center  center-block formDiv">
+       <h4 class="text-center login" style="font-weight: bold">Welcome in <span class="etklm">Etklm</span> </h4>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+            <div class="" [ngClass]="validateGroup('email')">
+              <div class="email">
+                <input id="email" type="text" formControlName="email" class="email-input" placeholder=".">
+                <label for="email" class="email-label"><i class="fa fa-address-book "></i>Enter Your email</label>
+              </div>
+              <div *ngIf="validateControl('email')" class="error text-left ">
+                <p *ngIf="validateError('email','pattern')" class="validate-shift"><i
+                  class="fa fa-exclamation-triangle" aria-hidden="true"></i> Enter a valid email format</p>
+                <p *ngIf="validateError('email','required')"  class="validate-shift"><i
+                  class="fa fa-exclamation-triangle" aria-hidden="true"></i> Required field</p>
+              </div>
+            </div>
+            <div class="" [ngClass]="validateGroup('password')">
+              <div class="password">
+  
+                <input id="password" type="password" formControlName="password" class="password-input"
+                       placeholder=".">
+                <label for="password" class="password-label"><i class="fa fa-key"></i>Enter your password</label>
+              </div>
+              <div *ngIf="validateControl('password')" class="text-left error" >
+                <p *ngIf="validateError('password','required')"  class="validate-shift"><i
+                  class="fa fa-exclamation-triangle" aria-hidden="true"></i> Required field</p>
+              </div>
+            </div>
+            <div *ngIf="asyncErrorMsg" class="form-control-feedback has-danger">
+              <p class="text-danger">{{asyncErrorMsg}}</p>
+            </div>
+            <div class="row">
+  
+              <div class="col-12 text-right">
+                <button type="button" class="btn btn-link forget" [routerLink]="['/reset-password']">
+                  Forgot password?
+                </button>
+              </div>
+            </div>
+            <div class="col-12 text-left remember">
+                <input type="checkbox">
+                Remember Me
+           </div>
+            <div class="col-12"> 
+              <button type="submit" class="shift-submit" [disabled]="form.invalid"
+              [ladda]="laddaLoader"  data-spinner-color="grey"  (click)="onSubmit()">Login
+              </button>
+            </div>
+          </form>
+       <a  class="btn btn-primary btn-blobk login"><i class="fa fa-facebook-square " aria-hidden="true"></i> Login With Facebook</a>        
+        <div class="Notmember textleft">
+          <a [routerLink]="['/register']">Not Registed Yet?</a>
+        </div>
+  
+    </div>
+  </div>
+  </div>

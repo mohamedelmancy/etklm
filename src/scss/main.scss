@@ -1,0 +1,182 @@
+
+//Variables for etklm
+
+
+$primaryColor:              #0a2743;
+$secondaryColor:            #ce93d8;
+$dangerColor:               #e25950;
+$successColor:              #bdea74;
+$textShadow:                0 1px 2px rgba(0, 0, 0, 0.5);
+$boxShadow:                 0 2px 4px rgba(50, 50, 93, 0.31), 0 2px 5px rgba(0, 0, 0, 0.1);
+
+.btn-material-primary, .btn-hub-view, .submit, .confirm, .btn-hub-view {
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  display: inline-block;
+  line-height: 16px;
+  margin: 6px 8px 6px 0;
+  min-width: 88px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.1s all ease;
+  border: #dbdbdb;
+  background-color: $primaryColor !important;
+  color: #fff !important;
+
+}
+
+.btn-material-primary:hover, .btn-material-cancel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,.4);
+}
+.btn-material-primary-disabled, .btn-material-primary:disabled, .btn-material-primary.disabled{
+  text-decoration: none;
+  border: 0;
+  cursor: not-allowed !important;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+  display: inline-block;
+  line-height: 16px;
+  margin: 6px 8px 6px 0;
+  min-width: 88px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.1s all ease;
+  border: #dbdbdb;
+  background-color: $primaryColor !important;
+  color: #fff !important;
+  opacity: 0.5 !important;
+}
+.btn-material-cancel {
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+  display: inline-block;
+  line-height: 16px;
+  margin: 6px 8px 6px 0;
+  min-width: 88px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.1s all ease;
+  border: #dbdbdb;
+  background-color: $dangerColor !important;
+  color: #fff !important;
+}
+
+.btn-material-cancel-disabled {
+  text-decoration: none;
+  border: 0;
+  opacity: 0.5;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+  display: inline-block;
+  line-height: 16px;
+  margin: 6px 8px 6px 0;
+  min-width: 88px;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.1s all ease;
+  border: #dbdbdb;
+  background-color: $dangerColor !important;
+  color: #fff !important;
+}
+.shift-input-upload{
+  padding: 10px 15px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+  color: $primaryColor;
+  cursor: text;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+  vertical-align: middle;
+  line-height: 16px;
+  white-space: nowrap;
+  border: none;
+  border-style: none;
+  margin: 6px 8px 6px 0;
+}
+.shift-input-upload >.fa-trash-o{
+  color: $dangerColor;
+}
+.validate-shift-danger{
+  color:  $dangerColor;
+}
+.validate-shift-success{
+color: $successColor;
+}
+.shift-input-upload:hover>.fa-trash-o{
+  color: #fff;
+}
+.shift-input-upload:hover{
+  color:#fff;
+  background-color: $primaryColor;
+}
+.ico-services {
+  fill: $primaryColor !important;
+}
+.email-input-txtarea{
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  color: rgba(0,0,0,0.4);
+  min-height: 60px;
+}
+.ico-servicesLarge {
+  height: 35px;
+  width: 30px;
+  margin-bottom: -15px;
+  fill: $primaryColor;
+}
+.badge, .badge-primary{
+  border-radius: 8px;
+  color: #696969;
+  background-color: #f8f9ff;
+  box-shadow: 0 0px 2px rgba(0, 0, 0, 0.15);
+}
+.icon-services{
+  fill: $primaryColor;
+}
+.main-container{
+margin-top: 65px;
+}
+@media only screen and ( max-width:991px ){
+.main-container{
+margin-top:35px;
+}
+}
+//fulllayout
+.icon-organization:focus, .shift-org-name:focus, .toggle-shift-sidebar-one:focus{
+  outline: 0;
+}
+ .app-alerts .success .content{
+   color: #fff !important;
+   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.025);
+   background-color:  $successColor;
+ }
+.app-alerts .app-alert.success{
+  background-color: $successColor !important;
+  border-radius: 8px !important;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.025);
+  box-shadow: -3px 5px 9px rgba(0, 0, 0, 0.15);
+}
+
+.app-alerts .app-alert.danger{
+  background-color: $dangerColor !important;
+  border-radius: 8px !important;
+  box-shadow: -3px 5px 9px rgba(0, 0, 0, 0.15);
+}
+:host /deep/ .tooltip-inner {
+  font-size:12px;
+  border-radius: 6px;
+}

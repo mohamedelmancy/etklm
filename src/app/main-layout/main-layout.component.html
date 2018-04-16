@@ -1,0 +1,76 @@
+<!--<nav class="navbar navbar-inverse">-->
+        <!--<div class="container-fluid">-->
+          <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
+          <!--<div class="navbar-header">-->
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+              <!--<span class="sr-only">Toggle navigation</span>-->
+              <!--<span class="icon-bar"></span>-->
+              <!--<span class="icon-bar"></span>-->
+              <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            <!--<a class="navbar-brand" >Etklm</a>-->
+            <!--<svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 10px; fill: brown" width="30" height="30"  viewBox="0 0 24 24"><path d="M16 11c0 2.209-1.791 4-4 4s-4-1.791-4-4v-7c0-2.209 1.791-4 4-4s4 1.791 4 4v7zm4-2v2c0 4.418-3.582 8-8 8s-8-3.582-8-8v-2h2v2c0 3.309 2.691 6 6 6s6-2.691 6-6v-2h2zm-7 13v-2h-2v2h-4v2h10v-2h-4z"/></svg>-->
+          <!--</div>-->
+      <!---->
+          <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
+          <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+            <!--<ul class="nav navbar-nav navbar-right">-->
+              <!--<li><a routerLinkActive="active"  [routerLink]="['/home']" >Messages</a></li>-->
+              <!--<li><a routerLinkActive="active"  [routerLink]="['/home/settings']" >Settings</a></li>-->
+              <!--<li><a routerLinkActive="active"  [routerLink]="['/home/contact-us']">Contact Us</a></li>-->
+              <!--<li><a routerLinkActive="active"  [routerLink]="['/home/about']">About</a></li>-->
+              <!--<li><a class="Btn" style="cursor: pointer" (click)="logout()" >Logout</a></li>-->
+              <!---->
+            <!--</ul>-->
+          <!--</div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
+        <!--</div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+      <!--</nav>-->
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" style="color: #fff;"  >Etklm</a>
+  <svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 10px; fill: brown" width="30" height="30"  viewBox="0 0 24 24"><path d="M16 11c0 2.209-1.791 4-4 4s-4-1.791-4-4v-7c0-2.209 1.791-4 4-4s4 1.791 4 4v7zm4-2v2c0 4.418-3.582 8-8 8s-8-3.582-8-8v-2h2v2c0 3.309 2.691 6 6 6s6-2.691 6-6v-2h2zm-7 13v-2h-2v2h-4v2h10v-2h-4z"/></svg>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0 navbar-right">
+      <li class="nav-item active">
+        <a class="nav-link"  routerLinkActive="active"  [routerLink]="['/home']" >Messages <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active"  [routerLink]="['/home/settings']"  >Settings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLinkActive="active"  [routerLink]="['/home/contact-us']"  >Contact Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " routerLinkActive="active"  [routerLink]="['/home/about']"  >About </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link Btn " style="cursor: pointer" (click)="logout()" >Log out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+       <div *ngIf="isAuthenticatedUserToken">
+           <router-outlet></router-outlet>
+         </div>
+      <footer class="center-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+                        <div class="copyright">
+                            Etklm 2018 ©
+                            <span class="social"><a href="http://www.twitter.com/sarahah_com" class="icon icon-twitter"></a>&nbsp;<a href="http://www.facebook.com/sarahahcom" class="icon icon-facebook"></a>&nbsp;<a href="http://www.instagram.com/sarahah_com" class="icon icon-instagram"></a></span>
+                            <a >Privacy</a>  -
+                            <a >Terms</a>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-4 col-lg-4">
+                        <div>
+                      <a class="spacer language">العربية</a><a class="spacer language" >English</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
