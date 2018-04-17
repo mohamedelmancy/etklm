@@ -81,6 +81,31 @@ a:not([href]):not([tabindex]) {
       margin-top: 83px
     }
   }
+.logo{
+  font-family: cursive;
+  font-weight:bold;
+  font-size: 20px;
+  font-style: italic;
+
+}
+@media (max-width: 768px) {
+    .logo{
+      display: none;
+    }
+  }
 .nav-item{
   margin-right: 20px;
+}
+.svgImg{
+  margin-left: 180px;
+}
+
+@media (max-width: 768px) {
+ .svgImg{
+   margin-left: 0;
+   padding-top: 10px;
+ }
+}
+.navbar-collapse{
+  height: 100vh;
 }
