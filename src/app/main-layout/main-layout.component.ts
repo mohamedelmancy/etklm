@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 })
 export class MainLayoutComponent implements OnInit {
   private isAuthenticatedUserToken: boolean;
-
+  showResponsiveNav = false;
   hideNavBar = true;
   constructor(private checkUser: CheckUserService, private http: Http, private router: Router) {
     this.checkUser.authenticatedUserToken.subscribe(

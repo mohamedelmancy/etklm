@@ -20,6 +20,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import {RegisterComponent} from './authentication/register/register.component';
 import {BusyModule} from 'angular2-busy';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
+import {AccordionModule, AlertModule, BsDropdownModule, CarouselModule, ModalModule} from 'ngx-bootstrap';
 
 // import {AccordionModule, BsDropdownModule, CarouselModule, ModalModule, TooltipModule} from 'ngx-bootstrap';
 
@@ -34,6 +35,7 @@ import {TooltipModule} from 'ngx-bootstrap/tooltip';
     RegisterComponent,
 
 
+
     ],
   imports: [
     BrowserModule, AppRouting,
@@ -44,7 +46,12 @@ import {TooltipModule} from 'ngx-bootstrap/tooltip';
     Angular2FontawesomeModule,
     BusyModule,
     FormsModule,
-
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    AccordionModule.forRoot(),
+    TooltipModule.forRoot(),
+    CarouselModule.forRoot(),
+    AlertModule.forRoot(),
     // ModalModule.forRoot(),
     // BsDropdownModule.forRoot(),
     // AccordionModule.forRoot(),

@@ -1,25 +1,20 @@
 
-<div class="container view">
+<div class="container view px-4">
     <div class="row">
-                <div class="text-center nain info col-md-12" >
-                    <img  class="profile-img" style="cursor: pointer" src="../../assets/avatar/avatar.png">
-                        <h5 class="panel-title">
-                            <span class="text-inheritr">
-                            <a ><span style="font-size:medium; color:white" class="icon icon-cog"> </span></a>User_name</span>
+                <div class="text-center nain info col-md-12 mb-4" style="background-color: white; border-radius: 6px" >
+                    <img (click)="openModal3(template2)"  class="profile-img" style="cursor: pointer" src="../../assets/avatar/avatar.png">
+                        <h5 class="panel-title mt-5">
+                            <span class="text-inheritr ">
+                              <i [routerLink]="['/home/settings']" style="color: #0f3659; cursor:pointer;" tooltip="Settings" class="fa fa-cog"></i></span>
+                            <a class="user_name" >User_name</a>
                         </h5>
                       <br>
-                    <span class="text-inherit" style="font-weight:bold"><a >Message my self</a></span>
+                    <span tooltip="View account" class="text-inherit" ><a class="user_name" >View My Account</a></span>
                 </div>
-                <div class="text-center data col-md-12" >
-                  <!-- <div class="text-center col-lg-6  col-md-6 col-sm-6 col-xs-6 ">
-                    <img  class="voice-img" tooltip="see voice messages" style="cursor: pointer" src="../../assets/avatar/voice.png">
-                  </div>
-                  <div class="text-center col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <img  class="text-img" tooltip="see text messages" style="cursor: pointer" src="../../assets/avatar/message.png">
-                    </div> -->
-                    <div class="header text-center col-lg-12 ">
+                <div class="text-center data col-md-12" style="background-color: white;  border-radius: 6px" >
+                    <div class="header text-center col-lg-12 mb-4">
                       <span>
-                      <i class="fa fa-comments" style="font-size:36px; margin: 0"></i>
+                      <i class="fa fa-comments" style="font-size:30px; margin: 0"></i>
                       </span>
                       &nbsp;&nbsp;
                       <span class="h2">All Messages</span>
@@ -27,28 +22,30 @@
                     <div class="messages text-left col-lg-12 ">
                             <div class="tabs-nav">
                               <div class="justify-content-between">
-                                <ul   class="" style="margin-bottom: 0px;">
-                                <li class="wow pulse" data-wow-duration="5s"  (click)="receivedClicked()" [ngClass]="{'active' : recrived}" >Received</li>
-                                <li class="wow pulse" data-wow-duration="5s"  (click)="favoriteClicked()" [ngClass]="{'active' : favorite}" >Favorite</li>
-                                <li class="wow pulse" data-wow-duration="5s"  (click)="sentClicked()" [ngClass]="{'active' : sent}" >Sent</li>
+                                <ul   class="px-3" style="margin-bottom: 0px;">
+                                <li class="messagesTabs" (click)="receivedClicked()" [ngClass]="{'active' : recrived}" >Received</li>
+                                <li class="messagesTabs"  (click)="favoriteClicked()" [ngClass]="{'active' : favorite}" >Favorite</li>
+                                <li class="messagesTabs" (click)="sentClicked()" [ngClass]="{'active' : sent}" >Sent</li>
                               </ul>
                               </div>
                         </div>
                     </div>     <!-- end header of messages-->
-                    <div [ngBusy]="busy" class="messageContent text-left col-lg-12 ">
+                    <div [ngBusy]="busy" class="messageContent text-left col-lg-12 mt-5">
                       <ul class=" list-unstyled">
                           <li  class="media list-group-item p-a" style="border-top: none">
-                              <div class="media-body">
-                                  <span style="padding-bottom: 5px;" class="pull-right close" onclick="Delete();return false;" aria-hidden="true"><i tooltip="delete" class="fa fa-trash" ></i></span>
-                                  <!-- <span style="padding-bottom: 5px; padding-right: 10px; font-size: large" class="pull-right"></span> -->
-                                  <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:24px"></i>
-                                  <!-- <i *ngIf="isText" class="fa fa-envelope pull-left" style="font-size:20px"></i> -->
-                                  <span style="white-space: pre-wrap; word-wrap: break-word; white-space: pre-line; overflow: hidden; display: block;">Message content</span><br>
-                                  <small class="text-muted">
+                                  <span style="padding-bottom: 5px; margin-right: -12px; z-index: 9" class="pull-right close" onclick="Delete();return false;" aria-hidden="true"><i tooltip="delete" style="font-size: 17px" class="fa fa-trash" ></i></span>
+                                  <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:17px"></i>
+                                  <i  *ngIf="isText1"  class="fa fa-comment-o pull-left" style="font-size:17px"></i>
+                                <span *ngIf="isText1" class="messageText">Message content</span><br>
+                                  <audio *ngIf="isAudio" [ngClass]="{ 'mt-5': isText1} "  controls>
+                                    <source src="assets/dd.mp4" type="audio/wav">
+                                      Your browser does not support the audio element.
+                                     </audio><br>
+                                     <small class="text-muted">
                                       <span >Current date</span>&nbsp;
                                       -&nbsp;<a  aria-hidden="true" onclick="Report();return false;" style="font-size: smaller">Report</a>
                                       <div class="mark-fav action-favorite btn btn-primary-outline btn-xs pull-right" style="font-size: smaller">
-                                        <i tooltip="favorite" class="fa fa-heart-o" style="font-size:22px;" ></i></div>
+                                        <i tooltip="favorite" class="fa fa-heart-o" style="font-size:17px;  margin-right: -35px;" ></i></div>
                                   </small>
                                   <button (click)="replay = !replay;" class="replay shift-submit" style="margin-left: 5px; margin-bottom: 2px"><span *ngIf="!replay">Replay</span><span *ngIf="replay">Cancel</span></button>
                             <div class="form-replay" *ngIf="replay">
@@ -73,10 +70,108 @@
 
                                 </form>
                               </div>
+                          </li><li  class="media list-group-item p-a" style="border-top: none">
+                                  <span style="padding-bottom: 5px; margin-right: -12px; z-index: 9" class="pull-right close" onclick="Delete();return false;" aria-hidden="true"><i tooltip="delete" style="font-size: 17px" class="fa fa-trash" ></i></span>
+                                  <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:17px"></i>
+                                  <span *ngIf="isText" class="messageText">Message content</span><br>
+                                  <small class="text-muted">
+                                      <span >Current date</span>&nbsp;
+                                      -&nbsp;<a  aria-hidden="true" onclick="Report();return false;" style="font-size: smaller">Report</a>
+                                      <div class="mark-fav action-favorite btn btn-primary-outline btn-xs pull-right" style="font-size: smaller">
+                                        <i tooltip="favorite" class="fa fa-heart-o" style="font-size:17px;  margin-right: -35px;" ></i></div>
+                                  </small>
+                                  <button (click)="replay = !replay;" class="replay shift-submit" style="margin-left: 5px; margin-bottom: 2px"><span *ngIf="!replay">Replay</span><span *ngIf="replay">Cancel</span></button>
+                            <div class="form-replay" *ngIf="replay">
+                              <img  [ngClass]="{ 'active': recording} "  class="fa-microphone microphone " (click)="startRecorder()" src="../../assets/avatar/microphone%20(1).png" >
+                              <a  [hidden]="!recording" class="fa fa-stop btn btn-danger " (click)="stopRecorder()" >Stop</a>
+                              <audio class="mt-5" *ngIf="doneRecording" controls>
+                                <source src="assets/dd.mp4" type="audio/wav">
+                                Your browser does not support the audio element.
+                              </audio>
+                              <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+                                  <div class="input-group-shift mb-3" style="margin-bottom: 2px" [ngClass]="validateGroup('replay')">
+                                    <input id="replay" type="text"  formControlName="replay"  class="shift-input" placeholder="Your Message">
+                                           <div *ngIf="validateControl('replay')" class="error text-left ">
+                                            </div>
+                                             <button class="ml-2  py-2 shift-submit  mt-5" [ladda]="laddaLoader"
+                                            data-spinner-color="grey"
+                                                     [disabled]="form.pristine && !recording"
+                                               (click)="onSubmit()">Send
+                                      </button>
+
+                                  </div>
+
+                                </form>
+                              </div>
+                          </li><li  class="media list-group-item p-a" style="border-top: none">
+                                  <span style="padding-bottom: 5px; margin-right: -12px; z-index: 9" class="pull-right close" onclick="Delete();return false;" aria-hidden="true"><i tooltip="delete" style="font-size: 17px" class="fa fa-trash" ></i></span>
+                                  <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:17px"></i>
+                                  <i  *ngIf="isText1"  class="fa fa-comment-o pull-left" style="font-size:17px"></i>
+                                  <audio class=""  controls>
+                                    <source src="assets/dd.mp4" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                  </audio><br>
+                                  <small class="text-muted">
+                                      <span >Current date</span>&nbsp;
+                                      -&nbsp;<a  aria-hidden="true" onclick="Report();return false;" style="font-size: smaller">Report</a>
+                                      <div class="mark-fav action-favorite btn btn-primary-outline btn-xs pull-right" style="font-size: smaller">
+                                        <i tooltip="favorite" class="fa fa-heart-o" style="font-size:17px;  margin-right: -35px;" ></i></div>
+                                  </small>
+                                  <button (click)="replay = !replay;" class="replay shift-submit" style="margin-left: 5px; margin-bottom: 2px"><span *ngIf="!replay">Replay</span><span *ngIf="replay">Cancel</span></button>
+                            <div class="form-replay" *ngIf="replay">
+                              <img  [ngClass]="{ 'active': recording} "  class="fa-microphone microphone " (click)="startRecorder()" src="../../assets/avatar/microphone%20(1).png" >
+                              <a  [hidden]="!recording" class="fa fa-stop btn btn-danger " (click)="stopRecorder()" >Stop</a>
+                              <audio class="mt-5" *ngIf="doneRecording" controls>
+                                <source src="assets/dd.mp4" type="audio/wav">
+                                Your browser does not support the audio element.
+                              </audio>
+                              <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+                                  <div class="input-group-shift mb-3" style="margin-bottom: 2px" [ngClass]="validateGroup('replay')">
+                                    <input id="replay" type="text"  formControlName="replay"  class="shift-input" placeholder="Your Message">
+                                           <div *ngIf="validateControl('replay')" class="error text-left ">
+                                            </div>
+                                             <button class="ml-2  py-2 shift-submit  mt-5" [ladda]="laddaLoader"
+                                            data-spinner-color="grey"
+                                                     [disabled]="form.pristine && !recording"
+                                               (click)="onSubmit()">Send
+                                      </button>
+
+                                  </div>
+
+                                </form>
                               </div>
                           </li>
                       </ul>
                     </div>        <!-- end content of messages-->
+
                 </div> <!-- end of main-->
           </div> <!-- end ofrow -->
     </div> <!-- end of messages-->
+
+
+
+
+<ng-template #template2>
+  <div class="modal-header">
+    <h4 class="modal-title" id="photoModalLabel">Change photo</h4>
+    <button type="button" (click)="modalRef3.hide()" class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+  </div>
+  <div class="modal-body">
+    <small style="font-size: 78%">The file size of the photo should not exceed 10 MB</small>
+  <a>  <i class="fas fa-cloud-upload-alt"></i></a>
+    <input type="file" accept="image/*" id="PhotoFile" style="display: none" > <div class="input-group-shift my-1">
+    <label for="file-upload" class="shift-input-upload photoUp">
+      <i class="fa fa-cloud-upload" aria-hidden="true"></i><span class="ml-1" style="font-size: 13px">Browse</span>
+    </label>
+    <input type="file" id="file-upload" accept="image/*" style="display: none" (change)="uploadNewAvatar($event)">
+    <i *ngIf="laddaLoader2" class="fa fa-spinner"></i>
+    <i *ngIf="!laddaLoader2 && uploadAvatarSuccess && uploadAvatarSuccess === 'success'" class="fa fa-check"></i>
+    <i *ngIf="!laddaLoader2 && uploadAvatarSuccess && uploadAvatarSuccess === 'failed'" class="fa fa-times"></i>
+  </div>
+  </div>
+  <div class="modal-footer">
+    <button  type="button" class="btn shift-submit upload" onclick="uploadPhoto()">Upload</button>
+    <button  type="button"  class="btn shift-submit remove" data-dismiss="modal" onclick="removePhoto()">Remove Photo</button>
+  </div>
+</ng-template>

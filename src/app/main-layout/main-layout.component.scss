@@ -1,12 +1,53 @@
 @import '../../scss/main';
+.mancyMenu{
+  display: flex;
+  flex-direction: row;
+  background-color: $primaryColor;
+  justify-content: space-between;
+  align-items: center;
+  >.btnShowModal{
+    display: none;
+  }
+  >.mancyNavLinks{
+      height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   > ul{
+      display: inline-flex;
+     >li{
+       list-style: none;
+       >a{
+         color: #fff;
+         padding: 10px 20px;
 
+         &:hover{
+           color: #fff !important;
+           cursor: pointer;
+           text-transform: none;
+           text-decoration: none !important;
+           font-weight: bold;
+
+         }
+       }
+     }
+    }
+  }
+}
+.mancyNavLinksSm{
+  > ul{
+   display: none;
+  }
+}
 .center-block{
     background-color: #d5d0d7;
     color: rgb(148, 141, 141);
     text-align: center;
-    position: relative;
     bottom: 0;
     width: 100%;
+  font-size: 13px;
+  font-weight: 600;
+  position: fixed;
 }
 center-block a {
   color: $primaryColor;
@@ -20,7 +61,7 @@ a:not([href]):not([tabindex]) {
     padding: 0 10px;
     // color: $primaryColor
 }
-.navbar-brand[_ngcontent-c1] {
+.navbar-brand {
   font-weight: initial;
   font-size: 30px;
   font-family: cursive;
@@ -59,7 +100,7 @@ a:not([href]):not([tabindex]) {
      color: #10365a
  }
  .app-navbar {
-    font-weight: 400;
+    //font-weight: 400;
     -webkit-font-smoothing: antialiased;
 }
  .navbar-inverse .navbar-collapse{
@@ -82,10 +123,8 @@ a:not([href]):not([tabindex]) {
     }
   }
 .logo{
-  font-family: cursive;
-  font-weight:bold;
-  font-size: 20px;
-  font-style: italic;
+  font-size: 25px;
+  font-weight: 700;
 
 }
 @media (max-width: 768px) {
@@ -105,7 +144,78 @@ a:not([href]):not([tabindex]) {
    margin-left: 0;
    padding-top: 10px;
  }
+  .navbar-collapse{
+    height: 100vh;
+    position: fixed;
+    top:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 8;
+background-color: $primaryColor;
+  }
+
+
 }
-.navbar-collapse{
-  height: 100vh;
+.btnShowModal{
+  display: none;
+}
+@media screen and (max-width: 840px){
+  .mancyNavLinks{
+    display: none !important;
+  }
+.responsiveNav{
+  background-color: $primaryColor;
+  z-index: 9;
+  position: fixed;
+  flex-direction: column !important;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+  .btnShowModal{
+    display: flex;
+  }
+  .mancyNavLinksSm{
+    > ul{
+      display: flex !important;
+      flex-direction: column;
+      >li{
+        list-style: none;
+        padding: 10px 20px;
+
+        >a{
+          color: #fff;
+          padding: 20px 20px;
+          font-size: 13px;
+
+          &:hover{
+            color: #fff !important;
+            cursor: pointer;
+            text-transform: none;
+            text-decoration: none !important;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+  .btnShowModal{
+    display: flex !important;
+    flex-direction: column;
+    background-color: transparent !important;
+    border: none !important;
+    color: #fff;
+    cursor: pointer;
+  }
+
+}
+.link{
+  margin-left: -60px;
+}
+.navItem {
+  font-weight: 400;
+  font-size: 14px;
 }

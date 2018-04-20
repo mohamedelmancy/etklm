@@ -1,0 +1,95 @@
+@import '../../scss/main';
+
+.st-content{
+  margin-bottom: 284px;
+}
+
+@media (max-width: 764px) {
+  .st-content{
+    margin-bottom: 25px;
+  }
+
+}
+.st-tabs , .st-content {
+  background-color: #f5f8fa;
+}
+.save{
+  border-color: #0f3659;
+}
+.setContent{
+  background-color: white;
+
+}
+.label-shift{
+  width: 28%;
+  text-align: left;
+  padding-right: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.input-group-shift{
+  margin-bottom: 20px;
+}
+.shift-input{
+  padding: 4px 7px 2px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(50,50,93,.16), 0 0 0 1px rgba(50,151,211,0), 0 0 0 2px rgba(50,151,211,0), 0 1px 1px rgba(0,0,0,.08);
+  color: $primaryColor;
+  cursor: text;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  border: none;
+  border-style: none;
+  width:70%;
+}
+.shift-submit{
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(50,50,93,.1), 0 2px 5px 0 rgba(50,50,93,.06), 0 1px 1px 0 rgba(0,0,0,.04), 0 1px 2px 0 rgba(0,0,0,.04), 0 0 0 0 transparent;
+  border-style: none;
+  color: rgba(0,0,0,0.7);
+  width: 20%;
+  margin-bottom: 15px;
+  height: 35px;
+  margin-top: 20px;
+  //float: right;
+}
+
+.submitBtn {
+  width: 70%;
+  margin-left: 213px;
+  margin-bottom: 15px;
+}
+.list-group li {
+  color: $primaryColor;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 36px;
+  cursor: pointer;
+}
+.list-group-item{
+  font-size: 13px;
+  font-weight: 400;
+  border: 1px solid rgba(15,186,178,.1);
+
+}
+
+@media  (max-width: 770px){
+  .check{
+    width: 25%!important;
+  }
+}
+
+.validate-shift{
+  color: $dangerColor;
+  font-size: 13px;
+  font-weight: 400;
+}

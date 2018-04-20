@@ -11,9 +11,11 @@ import {HomeRouting} from './home.routing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {BusyModule} from 'angular2-busy';
-import {LoginComponent} from "../authentication/login/login.component";
-
+import {LoginComponent} from '../authentication/login/login.component';
+import {AccordionModule, AlertModule, BsDropdownModule, CarouselModule, ModalModule} from 'ngx-bootstrap';
+import {ChangePasswordComponent} from '../settings/change-password/change-password.component';
 // import {SpeechRecognitionService} from '../main-layout/speech-recognition-service.service'
+import { RemoveAccountComponent } from '../settings/remove-account/remove-account.component';
 
 @NgModule({
   imports: [
@@ -23,12 +25,19 @@ import {LoginComponent} from "../authentication/login/login.component";
     ReactiveFormsModule,
     FormsModule,
     TooltipModule.forRoot(),
+    ModalModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    AccordionModule.forRoot(),
+    TooltipModule.forRoot(),
+    CarouselModule.forRoot(),
+    AlertModule.forRoot(),
     BusyModule,
 
 
   ],
 
-  declarations: [ HomeComponent, MessagesComponent, SettingsComponent, AboutComponent, ContactUsComponent,
+  declarations: [ HomeComponent, MessagesComponent, SettingsComponent, AboutComponent, ContactUsComponent, ChangePasswordComponent, RemoveAccountComponent,
+
   ],
   providers: [LoginComponent]
 })

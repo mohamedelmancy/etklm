@@ -62,6 +62,8 @@ width: 100%
   width: 20%;
   text-align: right;
   padding-right: 8px;
+  font-size: 15px;
+  font-weight: 500
 }
 .card-header-shift{
   padding-left: 20px;
@@ -181,7 +183,7 @@ outline:none;
   margin-top: -10px;
 }
 .email-input, .password-input{
-  margin-bottom: 25px  
+  margin-bottom: 25px
 }
 .forget, .remember, .Notmember{
   padding: 10px;
@@ -189,7 +191,7 @@ outline:none;
 @media (max-width: 1000px) {
   .formDiv{
     width: 50%;
-    height: 85%;    
+    height: 85%;
   }
 }
 @media (max-width: 700px) {
@@ -201,13 +203,13 @@ outline:none;
 @media (max-width: 540px) {
   .formDiv{
     width: 60%;
-    height: 85%;    
+    height: 85%;
   }
 }
 @media (max-width: 450px) {
   .formDiv{
     width: 70%;
-    height: 85%;    
+    height: 85%;
   }
 }
 @media (max-width: 400px) {
@@ -220,4 +222,12 @@ outline:none;
   .formDiv{
     width: 100%
   }
+}
+.face {
+  font-size: 13px;
+  font-weight: 500;
+}
+.Notmember{
+  font-size: 14px;
+  font-weight: 500;
 }

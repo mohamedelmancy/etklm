@@ -1,4 +1,4 @@
-<div class="container mainDiv">
+<div class="mainDiv">
     <div class="overlay">
      <div class="text-center  center-block formDiv">
         <h1 class="text-center header" style="margin: 20px">Create new account</h1>
@@ -20,7 +20,6 @@
 
           <div class="input-group-shift my-2" [ngClass]="validateGroup('lastName')">
               <label for="lastname" class="label-shift">Last name</label>
-
               <input type="text" id="lastname" formControlName="lastName" class="shift-input" placeholder=" enter your last name here...">
             <div *ngIf="validateControl('lastName')" class="">
               <p *ngIf="validateError('lastName','maxlength')" class="text-left validate-shift"><i
@@ -32,9 +31,8 @@
             </div>
           </div>
 
-          <div *ngIf="!invitedEmail" class="input-group-shift my-2" [ngClass]="validateGroup('email')">
+          <div  class="input-group-shift my-2" [ngClass]="validateGroup('email')">
             <label for="email" class="label-shift"> Email</label>
-
             <input type="text" formControlName="email" class="shift-input" id="email" placeholder="enter your email here...">
             <div *ngIf="validateControl('email')" class="">
               <p *ngIf="validateError('email','pattern')" class="text-left validate-shift"><i
@@ -77,7 +75,7 @@
             <p class="text-left validate-shift"><i
               class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{asyncErrorMsg}}</p>
           </div>
-          <div class="card-footer d-flex flex-row-reverse">
+          <div class="d-flex flex-row-reverse">
               <button  class="ml-2 px-3 py-2 shift-submit" [ladda]="laddaLoader" data-spinner-color="grey"
                       [disabled]="form.invalid" type="submit" (click)="onSubmit()">
                 <span>Submit</span>

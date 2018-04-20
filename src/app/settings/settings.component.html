@@ -1,3 +1,81 @@
-<p>
-  settings works!
-</p>
+
+<div class="container container-mobile p-t-md">
+  <div class="container">
+    <div class="row py-3">
+    <div class="col-sm-3 st-tabs">
+
+      <div class="panel panel-default panel-profile">
+
+        <ul class="list-group">
+          <li class="list-group-item settings-menu-item py-0">Settings</li>
+          <li class="list-group-item settings-menu-item manage-edit py-1"><a (click)="profileClicked()"  ><span style="margin-right: 10px; color: #8b888c " class="fa fa-user"></span>Profile Settings</a></li>
+          <li class="list-group-item settings-menu-item manage-change py-1"><a (click)="changePasswordClicked()" ><span style="margin-right: 10px; color: #8b888c" class="fa fa-shield"></span>Change Password</a></li>
+          <li class="list-group-item settings-menu-item manage-delete py-1"><a (click)="removeClicked()" ><span style="margin-right: 10px; color: #8b888c" class="fa fa-user-times"></span>Remove Account</a></li>
+          <li class="list-group-item settings-menu-item py-1"><a [routerLink]="['/home']" style="color: #0a2743;   text-decoration-line: none;"><span style="margin-right: 10px; color: #8b888c"  class="fa fa-comments"></span>Back to Messages</a></li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-9 st-content">
+      <div class="panel panel-default panel-settings px-4 pt-2 setContent"  *ngIf="profile">
+        <form [formGroup]="form"  (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+          <h4 style="font-size: 18px; font-weight: 600">Edit personal information</h4>
+          <hr />
+          <div class="input-group-shift mt-2" [ngClass]="validateGroup('name')">
+            <label for="new-name" class="label-shift">Email</label>
+            <input type="text" id="new-name" formControlName="name" class="shift-input view-email"
+                   placeholder="Enter new email">
+            <div *ngIf="validateControl('name')" class=" text-center ">
+              <p *ngIf="validateError('name','minlength')" class="validate-shift"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Enter Minimum Number of 8 characters</p>
+              <p *ngIf="validateError('name','maxlength')" class="validate-shift"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Enter Maximum Number of 30 characterst</p>
+              <p *ngIf="validateError('name','required')" class="validate-shift"><i class="fa fa-exclamation-triangle"
+                                                                                        aria-hidden="true"></i>
+                Required Field</p>
+            </div>
+          </div>
+          <div class="input-group-shift mt-2" [ngClass]="validateGroup('newEmail')">
+            <label for="new-email" class="label-shift">Email</label>
+            <input type="text" id="new-email" formControlName="newEmail" class="shift-input view-email"
+                   placeholder="Enter new email">
+            <div *ngIf="validateControl('newEmail')" class=" text-center ">
+              <p *ngIf="validateError('newEmail','pattern')" class="validate-shift"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Enter a valid email format</p>
+              <p *ngIf="validateError('newEmail','required')" class="validate-shift"><i class="fa fa-exclamation-triangle"
+                                                                                        aria-hidden="true"></i>
+                Required Field</p>
+            </div>
+          </div>
+          <div class="input-group-shift my-2 ">
+            <label class="label-shift" for="NotifyEmail">Notifications</label>
+              <input checked="checked" style="-webkit-box-shadow: none; width: 3%" class="shift-input check" type="checkbox" data-val="true" id="NotifyEmail" name="NotifyEmail" type="checkbox" value="true" />
+          </div>
+          <div class="input-group-shift  my-2 ">
+            <label class=" label-shift" for="AppearInSearch">Appear In Search</label>
+              <input class="shift-input check" style="-webkit-box-shadow: none; width: 3%"  data-val="true" id="AppearInSearch" type="checkbox" name="AppearInSearch" type="checkbox" value="true" />
+          </div>
+          <div class="input-group-shift  my-2 ">
+            <label class=" label-shift" for="AllowAnonymousMessages">Allow Anonymous People To Post</label>
+              <input  checked="checked" style="-webkit-box-shadow: none; width: 3%"   type="checkbox" class="shift-input check" data-val="true" id="AllowAnonymousMessages" name="AllowAnonymousMessages" type="checkbox" value="true" />
+          </div>
+          <div class="submitBtn ">
+              <button  [disabled]="form.invalid" type="submit" (click)="onSubmit()" [ladda]="laddaLoader" class="shift-submit  save">Save</button>
+          </div>
+        </form>
+      </div>
+      <br />
+      <!--end of profile seetings-->
+      <div class="panel panel-default panel-settings px-4 pt-2 setContent" style="margin-bottom: 108px; margin-top: -24px;" *ngIf="changePassword" >
+      <app-change-password></app-change-password>
+      </div>
+      <!--end of change password seetings-->
+      <div class="panel panel-default panel-settings px-4 pt-2 setContent" style="margin-bottom: 120px;margin-top: -23px;" *ngIf="removeAccount" >
+      <app-remove-account></app-remove-account>
+      </div>
+      <!--end of remove account seetings-->
+    </div>
+    </div>
+  </div>
+</div>
