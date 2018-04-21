@@ -115,9 +115,10 @@ width: 100%
   //float: right;
 }
 .validate-shift{
-  color:  #e25950;
+  color: $dangerColor;
+  font-size: 13px;
+  font-weight: 400;
 }
-
 .img-logo{
   position: absolute;
   top: 40px;
@@ -226,6 +227,7 @@ outline:none;
 .face {
   font-size: 13px;
   font-weight: 500;
+  margin-top: -35;
 }
 .Notmember{
   font-size: 14px;
