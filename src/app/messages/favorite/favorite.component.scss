@@ -1,0 +1,165 @@
+@import '../../../scss/main';
+
+.view {
+  height: auto;
+  margin-top: 30px;
+  /* background-color: #001f2c */
+  margin-bottom: 10px
+}
+.info {
+  background-color: #e7e0e0;
+  padding: 20px
+}
+.data{
+  margin-top: 30px;
+  background-color: transparent;
+  margin-bottom: 150px;
+  /* height: 295px; */
+}
+.data .voice-img , .text-img {
+  text-align: center;
+  height: 90px;
+  width: 90px;
+  border: 1px solid white;
+  background-color: transparent;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-bottom: 14px
+}
+@media (min-width: 768px) {
+  .data .voice-img , .text-img
+  {
+    text-align: center;
+    height: 180px;
+    width: 190px;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-bottom: 85px
+  }
+}
+
+@media (min-width: 768px) {
+  .data{
+    margin-top: 0
+  }
+}
+.h2{
+  font-size: 20px;
+}
+.header{
+  font-weight: bold;
+  margin: 15px auto;
+  margin-top: 7px
+}
+@media(max-width: 360px){
+  .header{
+    font-weight: bold;
+    font-size: 15px;
+    margin: 5px auto;
+  }
+  .h2{
+    margin-top: 15px
+  }
+}
+.messageContent{
+  padding-left: 0px;
+  text-align: left;
+  overflow: auto;
+  width: 100%;
+  padding-top: 50px;
+}
+.messageContent{
+}
+.fa-heart-o:hover{
+  color: red;
+}
+.fa-trash-o:hover{
+  color: rgb(230, 171, 44)
+}
+.fa-heart-o{
+  color: $primaryColor;
+}
+.fa-trash-o{
+  color: $primaryColor;
+}
+.mark-fav{
+  margin-left: -10px;
+  margin-right: -1px;
+}
+.close{
+  margin-right: 6px
+}
+
+.media-body{
+  padding-top: 30px;
+  padding-right: 10px;
+}
+.microphone, .notActive{
+  width: 5%;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #00AA88;
+  transition: all .2s ease-in-out;
+}
+.microphone:hover{
+}
+.active{
+  transform: scaleZ(1.5);
+  background-color: red;
+}
+.fa-stop{
+  background-color: #d6b1b1;
+  color: #000;
+
+}
+.btn-danger{
+  border:  none;
+}
+.fa-stop:hover{
+  color: red;
+}
+@media (max-width: 1000px) {
+  .microphone{
+    width: 50px;
+  }
+}
+@media (max-width: 1000px) {
+  .replay{
+    width: 50px;
+  }
+}
+.modal{
+  margin-top: 100px;
+}
+.modal-fix{
+  margin-top: 50px !important;
+}
+@media screen and (max-width: 460px) {
+  .shift-submit {
+    width: 30% !important;
+  }
+}
+.list-group-item {
+  border: none;
+}
+.modal-title{
+  font-size: 18px;;
+  font-weight: 800;
+  line-height: 1.6px;
+}
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.messageText{
+  white-space: pre-wrap;
+  font-size: 12px;
+  font-weight: 400;
+  word-wrap: break-word;
+  white-space: pre-line;
+  overflow: hidden;
+  display: block;
+}

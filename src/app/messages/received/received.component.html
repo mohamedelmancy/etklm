@@ -1,0 +1,111 @@
+<ul class=" list-unstyled" >
+  <li  class="media list-group-item p-a" style="border-top: none">
+    <span style="padding-bottom: 5px; margin-right: -12px; z-index: 9" class="pull-right close" onclick="deleteMessage();return false;" aria-hidden="true"><i tooltip="delete" style="font-size: 17px" class="fa fa-trash" ></i></span>
+    <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:17px"></i>
+    <i  *ngIf="isText1"  class="fa fa-comment-o pull-left" style="font-size:17px"></i>
+    <span *ngIf="isText1" class="messageText">Message content</span><br>
+    <audio *ngIf="isAudio" [ngClass]="{ 'mt-5': isText1} "  controls>
+      <source src="assets/dd.mp4" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio><br>
+    <small class="text-muted">
+      <span >Current date</span>&nbsp;
+      -&nbsp;<a  aria-hidden="true" onclick="reportUser();return false;" style="font-size: smaller">Report</a>
+      <div class="mark-fav action-favorite btn btn-primary-outline btn-xs pull-right" style="font-size: smaller">
+        <i tooltip="favorite" class="fa fa-heart-o" style="font-size:17px;  margin-right: -35px;" ></i></div>
+    </small>
+    <button (click)="replay = !replay;" class="replay shift-submit" style="margin-left: 5px; margin-bottom: 2px"><span *ngIf="!replay">Replay</span><span *ngIf="replay">Cancel</span></button>
+    <div class="form-replay" *ngIf="replay">
+      <img  [ngClass]="{ 'active': recording} "  class="fa-microphone microphone " (click)="startRecorder()" src="../../assets/avatar/microphone%20(1).png" >
+      <a  [hidden]="!recording" class="fa fa-stop btn btn-danger " (click)="stopRecorder()" >Stop</a>
+      <audio class="mt-5" *ngIf="doneRecording" controls>
+        <source src="assets/dd.mp4" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+        <div class="input-group-shift mb-3" style="margin-bottom: 2px" [ngClass]="validateGroup('replay')">
+          <input id="replay" type="text"  formControlName="replay"  class="shift-input" placeholder="Your Message">
+          <div *ngIf="validateControl('replay')" class="error text-left ">
+          </div>
+          <button class="ml-2  py-2 shift-submit  mt-5" [ladda]="laddaLoader"
+                  data-spinner-color="grey"
+                  [disabled]="form.pristine && !recording"
+                  (click)="onSubmit()">Send
+          </button>
+
+        </div>
+
+      </form>
+    </div>
+  </li><li  class="media list-group-item p-a" style="border-top: none">
+  <span style="padding-bottom: 5px; margin-right: -12px; z-index: 9" class="pull-right close" onclick="deleteMessage();return false;" aria-hidden="true"><i tooltip="delete" style="font-size: 17px" class="fa fa-trash" ></i></span>
+  <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:17px"></i>
+  <span *ngIf="isText" class="messageText">Message content</span><br>
+  <small class="text-muted">
+    <span >Current date</span>&nbsp;
+    -&nbsp;<a  aria-hidden="true" onclick="reportUser();return false;" style="font-size: smaller">Report</a>
+    <div class="mark-fav action-favorite btn btn-primary-outline btn-xs pull-right" style="font-size: smaller">
+      <i tooltip="favorite" class="fa fa-heart-o" style="font-size:17px;  margin-right: -35px;" ></i></div>
+  </small>
+  <button (click)="replay = !replay;" class="replay shift-submit" style="margin-left: 5px; margin-bottom: 2px"><span *ngIf="!replay">Replay</span><span *ngIf="replay">Cancel</span></button>
+  <div class="form-replay" *ngIf="replay">
+    <img  [ngClass]="{ 'active': recording} "  class="fa-microphone microphone " (click)="startRecorder()" src="../../assets/avatar/microphone%20(1).png" >
+    <a  [hidden]="!recording" class="fa fa-stop btn btn-danger " (click)="stopRecorder()" >Stop</a>
+    <audio class="mt-5" *ngIf="doneRecording" controls>
+      <source src="assets/dd.mp4" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+      <div class="input-group-shift mb-3" style="margin-bottom: 2px" [ngClass]="validateGroup('replay')">
+        <input id="replay" type="text"  formControlName="replay"  class="shift-input" placeholder="Your Message">
+        <div *ngIf="validateControl('replay')" class="error text-left ">
+        </div>
+        <button class="ml-2  py-2 shift-submit  mt-5" [ladda]="laddaLoader"
+                data-spinner-color="grey"
+                [disabled]="form.pristine && !recording"
+                (click)="onSubmit()">Send
+        </button>
+
+      </div>
+
+    </form>
+  </div>
+</li><li  class="media list-group-item p-a" style="border-top: none">
+  <span style="padding-bottom: 5px; margin-right: -12px; z-index: 9" class="pull-right close" onclick="deleteMessage();return false;" aria-hidden="true"><i tooltip="delete" style="font-size: 17px" class="fa fa-trash" ></i></span>
+  <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:17px"></i>
+  <i  *ngIf="isText1"  class="fa fa-comment-o pull-left" style="font-size:17px"></i>
+  <audio class=""  controls>
+    <source src="assets/dd.mp4" type="audio/wav">
+    Your browser does not support the audio element.
+  </audio><br>
+  <small class="text-muted">
+    <span >Current date</span>&nbsp;
+    -&nbsp;<a  aria-hidden="true" onclick="reportUser();return false;" style="font-size: smaller">Report</a>
+    <div class="mark-fav action-favorite btn btn-primary-outline btn-xs pull-right" style="font-size: smaller">
+      <i tooltip="favorite" class="fa fa-heart-o" style="font-size:17px;  margin-right: -35px;" ></i></div>
+  </small>
+  <button (click)="replay = !replay;" class="replay shift-submit" style="margin-left: 5px; margin-bottom: 2px"><span *ngIf="!replay">Replay</span><span *ngIf="replay">Cancel</span></button>
+  <div class="form-replay" *ngIf="replay">
+    <img  [ngClass]="{ 'active': recording} "  class="fa-microphone microphone " (click)="startRecorder()" src="../../assets/avatar/microphone%20(1).png" >
+    <a  [hidden]="!recording" class="fa fa-stop btn btn-danger " (click)="stopRecorder()" >Stop</a>
+    <audio class="mt-5" *ngIf="doneRecording" controls>
+      <source src="assets/dd.mp4" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+      <div class="input-group-shift mb-3" style="margin-bottom: 2px" [ngClass]="validateGroup('replay')">
+        <input id="replay" type="text"  formControlName="replay"  class="shift-input" placeholder="Your Message">
+        <div *ngIf="validateControl('replay')" class="error text-left ">
+        </div>
+        <button class="ml-2  py-2 shift-submit  mt-5" [ladda]="laddaLoader"
+                data-spinner-color="grey"
+                [disabled]="form.pristine && !recording"
+                (click)="onSubmit()">Send
+        </button>
+
+      </div>
+
+    </form>
+  </div>
+</li>
+</ul>

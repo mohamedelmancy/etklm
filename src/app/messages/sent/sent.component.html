@@ -1,0 +1,17 @@
+<ul class=" list-unstyled" >
+  <li  class="media list-group-item p-a" style="border-top: none">
+    <span style="padding-bottom: 5px; margin-right: -12px; z-index: 9" class="pull-right close" onclick="deleteMessage();return false;" aria-hidden="true"><i tooltip="delete" style="font-size: 17px" class="fa fa-trash" ></i></span>
+    <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:17px"></i>
+    <i  *ngIf="isText1"  class="fa fa-comment-o pull-left" style="font-size:17px"></i>
+    <audio class=""  controls>
+      <source src="assets/dd.mp4" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio><br>
+    <small class="text-muted">
+      <span >Current date</span>&nbsp;
+      -&nbsp;<a  aria-hidden="true" onclick="reportUser();return false;" style="font-size: smaller">Report</a>
+      <div class="mark-fav action-favorite btn btn-primary-outline btn-xs pull-right" style="font-size: smaller">
+        <i tooltip="favorite" class="fa fa-heart-o" style="font-size:17px;  margin-right: -35px;" ></i></div>
+    </small>
+  </li>
+</ul>

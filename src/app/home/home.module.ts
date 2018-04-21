@@ -16,6 +16,9 @@ import {AccordionModule, AlertModule, BsDropdownModule, CarouselModule, ModalMod
 import {ChangePasswordComponent} from '../settings/change-password/change-password.component';
 // import {SpeechRecognitionService} from '../main-layout/speech-recognition-service.service'
 import { RemoveAccountComponent } from '../settings/remove-account/remove-account.component';
+import {ReceivedComponent} from '../messages/received/received.component';
+import { FavoriteComponent } from '../messages/favorite/favorite.component';
+import { SentComponent } from '../messages/sent/sent.component';
 
 @NgModule({
   imports: [
@@ -36,7 +39,9 @@ import { RemoveAccountComponent } from '../settings/remove-account/remove-accoun
 
   ],
 
-  declarations: [ HomeComponent, MessagesComponent, SettingsComponent, AboutComponent, ContactUsComponent, ChangePasswordComponent, RemoveAccountComponent,
+  declarations: [ HomeComponent, MessagesComponent, SettingsComponent,
+    AboutComponent, ContactUsComponent, ChangePasswordComponent, RemoveAccountComponent, ReceivedComponent, FavoriteComponent, SentComponent
+
 
   ],
   providers: [LoginComponent]
