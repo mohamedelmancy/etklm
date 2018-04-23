@@ -21,6 +21,9 @@ import {RegisterComponent} from './authentication/register/register.component';
 import {BusyModule} from 'angular2-busy';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {AccordionModule, AlertModule, BsDropdownModule, CarouselModule, ModalModule} from 'ngx-bootstrap';
+import { FacebookModule } from 'ngx-facebook';
+import {AboutComponent} from './about/about.component';
+import {ContactUsComponent} from './contact-us/contact-us.component';
 
 // import {AccordionModule, BsDropdownModule, CarouselModule, ModalModule, TooltipModule} from 'ngx-bootstrap';
 
@@ -33,7 +36,8 @@ import {AccordionModule, AlertModule, BsDropdownModule, CarouselModule, ModalMod
     LandingPageComponent,
     MainLayoutComponent,
     RegisterComponent,
-
+    AboutComponent,
+    ContactUsComponent,
 
 
     ],
@@ -52,6 +56,7 @@ import {AccordionModule, AlertModule, BsDropdownModule, CarouselModule, ModalMod
     TooltipModule.forRoot(),
     CarouselModule.forRoot(),
     AlertModule.forRoot(),
+    FacebookModule.forRoot(),
     // ModalModule.forRoot(),
     // BsDropdownModule.forRoot(),
     // AccordionModule.forRoot(),

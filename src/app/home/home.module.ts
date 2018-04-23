@@ -5,8 +5,8 @@ import {ModuleWithProviders} from '@angular/core';
 import {MessagesComponent} from '../messages/messages.component';
 import {HomeComponent} from './home.component';
 import {SettingsComponent} from '../settings/settings.component';
-import {AboutComponent} from '../about/about.component';
-import {ContactUsComponent} from '../contact-us/contact-us.component' ;
+// import {AboutComponent} from '../about/about.component';
+// import {ContactUsComponent} from '../contact-us/contact-us.component' ;
 import {HomeRouting} from './home.routing';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
@@ -19,6 +19,7 @@ import { RemoveAccountComponent } from '../settings/remove-account/remove-accoun
 import {ReceivedComponent} from '../messages/received/received.component';
 import { FavoriteComponent } from '../messages/favorite/favorite.component';
 import { SentComponent } from '../messages/sent/sent.component';
+import { MyAccountComponent } from '../messages/my-account/my-account.component';
 
 @NgModule({
   imports: [
@@ -39,8 +40,17 @@ import { SentComponent } from '../messages/sent/sent.component';
 
   ],
 
-  declarations: [ HomeComponent, MessagesComponent, SettingsComponent,
-    AboutComponent, ContactUsComponent, ChangePasswordComponent, RemoveAccountComponent, ReceivedComponent, FavoriteComponent, SentComponent
+  declarations: [ HomeComponent,
+                  MessagesComponent,
+                  SettingsComponent,
+                  // AboutComponent,
+                  // ContactUsComponent,
+                  ChangePasswordComponent,
+                  RemoveAccountComponent,
+                  ReceivedComponent,
+                  FavoriteComponent,
+                  SentComponent,
+                  MyAccountComponent
 
 
   ],

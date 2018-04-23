@@ -72,14 +72,14 @@
 }
 .messageContent{
 }
-.fa-heart-o:hover{
-  color: red;
+.fa-heart:hover{
+  color: $primaryColor;
 }
 .fa-trash-o:hover{
   color: rgb(230, 171, 44)
 }
-.fa-heart-o{
-  color: $primaryColor;
+.fa-heart{
+  //color: $primaryColor;
 }
 .fa-trash-o{
   color: $primaryColor;
@@ -198,4 +198,7 @@
   white-space: pre-line;
   overflow: hidden;
   display: block;
+}
+.markedFav {
+  color: $primaryColor;
 }

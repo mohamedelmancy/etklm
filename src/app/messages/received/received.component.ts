@@ -22,6 +22,7 @@ export class ReceivedComponent extends  Validation implements OnInit {
   doneRecording = false;
   laddaLoader = false;
   laddaLoader2 = false;
+  markFav = false;
   constructor(private iformBuilder: FormBuilder, private irouter: Router) {
     super(iformBuilder, irouter);
     this.recorder = new RawMediaRecorder(new AudioContext());
@@ -64,5 +65,7 @@ export class ReceivedComponent extends  Validation implements OnInit {
     this.recorder.stop();
     this.recorder.onStop = () => {
     };
+  }
+  markAsFavorite(markFav) {
   }
 }

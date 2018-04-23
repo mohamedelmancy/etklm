@@ -136,6 +136,11 @@
     font-size: 12px;
 
   }
+  .header{
+    font-size: 25px;
+    font-weight: 600;
+    margin: 20px
+  }
   @media (max-width: 900px) {
     .formDiv{
       width: 70%
@@ -179,3 +184,23 @@
         width: 30%
     }
   }
+@media  (max-width: 770px){
+  .shift-input{
+    width:100%;
+  }
+  .label-shift {
+    font-size: 14px;
+    width: 100%;
+  }
+  .shift-submit {
+    width: 50% !important;
+    height: 25px;
+  }
+  .formDiv {
+    margin-top: 40px;
+  }
+  .header{
+    font-size: 19px;
+    font-weight: 600;
+  }
+}

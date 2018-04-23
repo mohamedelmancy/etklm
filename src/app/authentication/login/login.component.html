@@ -38,7 +38,7 @@
                 </button>
               </div>
             </div>
-            <div style="  font-size: 11px; font-weight: 500;" class="col-12 text-left remember">
+            <div style="  font-size: 12px; font-weight: 500;" class="col-12 text-left remember">
                 <input checked="checked" type="checkbox">
                 Remember Me
            </div>
@@ -48,7 +48,7 @@
               </button>
             </div>
           </form>
-       <a  class="btn btn-primary btn-blobk login face"><i class="fa fa-facebook-square " aria-hidden="true"></i> Login With Facebook</a>
+       <a (click)="loginWithFacebook()"  class="btn btn-primary btn-blobk login face"><i class="fa fa-facebook-square " aria-hidden="true"></i> Login With Facebook</a>
         <div class="Notmember textleft">
           <a [routerLink]="['/register']">Not Registed Yet?</a>
         </div>

@@ -1,7 +1,7 @@
-<div class="mainDiv">
+<div class="mainDiv ">
     <div class="overlay">
-     <div class="text-center  center-block formDiv">
-        <h1 class="text-center header" style="margin: 20px">Create new account</h1>
+     <div class="text-center  center-block formDiv py-2">
+        <h1 class="text-center header mb-4">Create new account</h1>
 
 
         <form [formGroup]="form"  (ngSubmit)="onSubmit()" novalidate autocomplete="off">
@@ -75,8 +75,8 @@
             <p class="text-left validate-shift"><i
               class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{asyncErrorMsg}}</p>
           </div>
-          <div class="d-flex flex-row-reverse">
-              <button  class="ml-2 px-3 py-2 shift-submit" [ladda]="laddaLoader" data-spinner-color="grey"
+          <div class="">
+              <button  class="shift-submit" [ladda]="laddaLoader" data-spinner-color="grey"
                       [disabled]="form.invalid" type="submit" (click)="onSubmit()">
                 <span>Submit</span>
               </button>

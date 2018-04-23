@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sent.component.scss']
 })
 export class SentComponent implements OnInit {
-
+  viewReplay = false
   isText = true;
   isText1 = false;
   isAudio = true;
@@ -18,5 +18,7 @@ export class SentComponent implements OnInit {
   reportUser() {
   }
   deleteMessage() {
+  }
+  viewReply() {
   }
 }

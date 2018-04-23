@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {CheckUserService} from './checkUser';
 import {Http, Response} from '@angular/http';
 import {Router} from '@angular/router';
+import {ContactUsComponent} from "../contact-us/contact-us.component";
+import {AboutComponent} from "../about/about.component";
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
@@ -11,6 +13,8 @@ export class MainLayoutComponent implements OnInit {
   private isAuthenticatedUserToken: boolean;
   showResponsiveNav = false;
   hideNavBar = true;
+  contact = false;
+  about = false;
   constructor(private checkUser: CheckUserService, private http: Http, private router: Router) {
     this.checkUser.authenticatedUserToken.subscribe(
       res => {

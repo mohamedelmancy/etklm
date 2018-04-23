@@ -18,7 +18,9 @@ export class LandingPageComponent implements OnInit {
   searchKeyword = '';
   searchInputFocused: boolean;
   mouseIn: boolean;
-
+  contact = false;
+  about = false;
+  showResponsiveNav = false;
   constructor( private router: Router) {
 
   }

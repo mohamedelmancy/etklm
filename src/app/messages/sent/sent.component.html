@@ -1,5 +1,5 @@
 <ul class=" list-unstyled" >
-  <li  class="media list-group-item p-a" style="border-top: none">
+  <li  class="media sentMessage list-group-item p-a" style="border-top: none" [routerLink]="['/home/my-account']" >
     <span style="padding-bottom: 5px; margin-right: -12px; z-index: 9" class="pull-right close" onclick="deleteMessage();return false;" aria-hidden="true"><i tooltip="delete" style="font-size: 17px" class="fa fa-trash" ></i></span>
     <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:17px"></i>
     <i  *ngIf="isText1"  class="fa fa-comment-o pull-left" style="font-size:17px"></i>
@@ -8,10 +8,30 @@
       Your browser does not support the audio element.
     </audio><br>
     <small class="text-muted">
-      <span >Current date</span>&nbsp;
-      -&nbsp;<a  aria-hidden="true" onclick="reportUser();return false;" style="font-size: smaller">Report</a>
-      <div class="mark-fav action-favorite btn btn-primary-outline btn-xs pull-right" style="font-size: smaller">
-        <i tooltip="favorite" class="fa fa-heart-o" style="font-size:17px;  margin-right: -35px;" ></i></div>
+      <span >Sender name</span>
+      <span >Current date</span>
     </small>
+    <!--<button *ngIf="!viewReplay" class="shift-submit" data-dismiss="modal" (click)="viewReply(); viewReplay  = true">View Replay</button>-->
+    <!--<button *ngIf="viewReplay" class="shift-submit" data-dismiss="modal" (click)="viewReply(); viewReplay  = false">Hide Replay</button>-->
+    <ul  class=" list-unstyled" >
+      <li  class="media list-group-item p-a" style="border-top: none">
+        <div class="text-center">
+          <p style="font-size: 11px; font-weight: bold; letter-spacing: 1.1px">Replies</p>
+        </div>
+        <i  *ngIf="isVoice"  class="fa fa-microphone pull-left" style="font-size:17px"></i>
+        <i  *ngIf="isText1"  class="fa fa-comment-o pull-left" style="font-size:17px"></i>
+        <span *ngIf="isText1" class="messageText">Message content</span><br>
+        <audio *ngIf="isAudio" [ngClass]="{ 'mt-5': isText1} "  controls>
+          <source src="assets/dd.mp4" type="audio/wav">
+          Your browser does not support the audio element.
+        </audio><br>
+        <small class="text-muted">
+          <span >Current date</span>&nbsp;
+          -&nbsp;<a  aria-hidden="true" onclick="reportUser();return false;" style="font-size: smaller">Report</a>
+        </small>
+      </li>
+    </ul>
   </li>
+
 </ul>
+

@@ -2,16 +2,16 @@
 <div class="container container-mobile p-t-md">
   <div class="container">
     <div class="row py-3">
-    <div class="col-sm-3 st-tabs">
+    <div class="col-sm-3 mySettings">
 
       <div class="panel panel-default panel-profile">
 
         <ul class="list-group">
           <li class="list-group-item settings-menu-item py-0">Settings</li>
-          <li class="list-group-item settings-menu-item manage-edit py-1"><a (click)="profileClicked()"  ><span style="margin-right: 10px; color: #8b888c " class="fa fa-user"></span>Profile Settings</a></li>
-          <li class="list-group-item settings-menu-item manage-change py-1"><a (click)="changePasswordClicked()" ><span style="margin-right: 10px; color: #8b888c" class="fa fa-shield"></span>Change Password</a></li>
-          <li class="list-group-item settings-menu-item manage-delete py-1"><a (click)="removeClicked()" ><span style="margin-right: 10px; color: #8b888c" class="fa fa-user-times"></span>Remove Account</a></li>
-          <li class="list-group-item settings-menu-item py-1"><a [routerLink]="['/home']" style="color: #0a2743;   text-decoration-line: none;"><span style="margin-right: 10px; color: #8b888c"  class="fa fa-comments"></span>Back to Messages</a></li>
+          <li class="list-group-item settings-menu-item manage-edit py-1"><a class="item" (click)="profileClicked()"  ><span style="margin-right: 10px; color: #8b888c " class="fa fa-user"></span>Profile Settings</a></li>
+          <li class="list-group-item settings-menu-item manage-change py-1"><a class="item" (click)="changePasswordClicked()" ><span style="margin-right: 10px; color: #8b888c" class="fa fa-shield"></span>Change Password</a></li>
+          <li class="list-group-item settings-menu-item manage-delete py-1"><a class="item" (click)="removeClicked()" ><span style="margin-right: 10px; color: #8b888c" class="fa fa-user-times"></span>Remove Account</a></li>
+          <li class="list-group-item settings-menu-item py-1"><a class="item" [routerLink]="['/home']" style="color: #0a2743;   text-decoration-line: none;"><span style="margin-right: 10px; color: #8b888c"  class="fa fa-comments"></span>Back to Messages</a></li>
 
         </ul>
       </div>
@@ -24,7 +24,7 @@
           <hr />
           <div class="input-group-shift mt-2" [ngClass]="validateGroup('name')">
             <label for="new-name" class="label-shift">Name</label>
-            <input type="text" id="new-name" formControlName="name" class="shift-input view-email"
+            <input type="text" id="new-name" formControlName="name" class="shift-input name"
                    placeholder="Enter new email">
             <div *ngIf="validateControl('name')" class=" text-center ">
               <p *ngIf="validateError('name','minlength')" class="validate-shift"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
@@ -38,7 +38,7 @@
           </div>
           <div class="input-group-shift mt-2" [ngClass]="validateGroup('newEmail')">
             <label for="new-email" class="label-shift">Email</label>
-            <input type="text" id="new-email" formControlName="newEmail" class="shift-input view-email"
+            <input type="text" id="new-email" formControlName="newEmail" class="shift-input email"
                    placeholder="Enter new email">
             <div *ngIf="validateControl('newEmail')" class=" text-center ">
               <p *ngIf="validateError('newEmail','pattern')" class="validate-shift"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>

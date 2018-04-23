@@ -10,8 +10,11 @@
   }
 
 }
+.st-tabs {
+
+}
 .st-tabs , .st-content {
-  background-color: #f5f8fa;
+  background-color: white;
 }
 .save{
   border-color: #0f3659;
@@ -85,6 +88,32 @@
 @media  (max-width: 770px){
   .check{
     width: 25%!important;
+  }
+}
+@media  (max-width: 770px){
+  .mySettings{
+    margin-bottom: 1rem!important;
+  }
+}
+@media  (max-width: 770px){
+  .name, .email{
+    width:100%;
+  }
+  .label-shift {
+    font-size: 14px;
+    width: 100%;
+  }
+  .shift-submit {
+    margin-left: -215px;
+    width: 75% !important;
+    height: 25px;
+  }
+  .item {
+    //font-size: 16px;
+    //font-weight: 600;
+  }
+  .mySettings{
+    padding: 0;
   }
 }
 

@@ -1,0 +1,49 @@
+@import '../../../scss/main';
+
+.profile-img {
+  max-width: 100px;
+  margin-bottom: 5px;
+  border-radius: 100%;
+  min-height: 100px;
+  min-width: 100px;
+  margin-top: -50px;
+}
+.user_name {
+  font-size: 14px;
+  line-height: 1.2px;
+  font-weight: 600;
+  color: inherit;
+}
+.panel-profile{
+  background-color: #fff;
+
+}
+.nain{
+  margin-top: 40px;
+}
+.shift-submit {
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(50, 50, 93, .1), 0 2px 5px 0 rgba(50, 50, 93, .06), 0 1px 1px 0 rgba(0, 0, 0, .04), 0 1px 2px 0 rgba(0, 0, 0, .04), 0 0 0 0 transparent;
+  border-style: none;
+  color: rgba(0, 0, 0, 0.7);
+  width: 15%;
+  margin-top: 10px;
+  //float: right;
+}
+.container{
+  padding-bottom: 309px;
+}
+.validate-shift{
+  color: $dangerColor;
+  font-size: 13px;
+  font-weight: 400;
+}
+@media (max-width: 760px) {
+  .shift-submit {
+    width: 50%!important;
+  }
+}

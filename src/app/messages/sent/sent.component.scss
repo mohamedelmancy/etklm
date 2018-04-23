@@ -1,0 +1,13 @@
+@import '../received/received.component';
+@media screen and (max-width: 460px) {
+  .shift-submit {
+    width: 33% !important;
+  }
+}
+.fa-heart-o {
+  font-weight: 700;
+  color: $primaryColor;
+}
+.sentMessage:hover {
+  background-color: #d9e8f3;
+}

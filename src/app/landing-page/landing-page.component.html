@@ -1,19 +1,111 @@
-<div class="container mainDiv">
+<div class="mainDiv">
     <div class="overlay">
-     <!-- <div class="row"> -->
-       <div class="col-lg-12 center-block">
-         <div class="col-lg-12 text-center overview">
-           <img class="logoImg" src="../../assets/avatar/etkl.jpg">
-              <h2 class="h2">
-                Lorem ipsum dolor sit amet, 
-              </h2>
-              <h3 class="h3"> adipisicing elit. Fugit ab atque laboriosam nam </h3>
-                <h4 class="h4">
-                voluptatum iusto, eveniet nemo amet autem? Similique dolore nemo esse eveniet quo. Rem?
-                </h4>
-              <button routerLink="/login" class="btn go">Ok Go</button>
-           </div>
+      <nav class="mancyMenu">
+        <div>
+          <a [routerLink]="['/home']">
+            <a class="svgImg" ><svg xmlns="http://www.w3.org/2000/svg" style="fill: brown"  width="25" height="25"  viewBox="0 0 24 24"><path d="M16 11c0 2.209-1.791 4-4 4s-4-1.791-4-4v-7c0-2.209 1.791-4 4-4s4 1.791 4 4v7zm4-2v2c0 4.418-3.582 8-8 8s-8-3.582-8-8v-2h2v2c0 3.309 2.691 6 6 6s6-2.691 6-6v-2h2zm-7 13v-2h-2v2h-4v2h10v-2h-4z"/></svg></a>
+            <a class="logo" style="color: #fff;">Etklm</a>
+          </a>
+        </div>
+        <button class="btnShowModal " type="button" (click)="showResponsiveNav = !showResponsiveNav" >
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="mancyNavLinks">
+          <ul>
+            <li class="pt-3">
+              <a class="navItem"   routerLinkActive="active" [routerLink]="['login']"  >login </a>
+            </li>
+            <li class="pt-3">
+              <a class="navItem"    routerLinkActive="active" [routerLink]="['register']" >Register</a>
+            </li>
+            <li class="pt-3">
+              <a class=" navItem"   routerLinkActive="active" (click)="contact = true; about = false"  >Contact Us</a>
+            </li>
+            <li class="pt-3">
+              <a class=" navItem"   routerLinkActive="active"  (click)="about = true; contact = false" >About </a>
+            </li>
+            <li class="pt-3">
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div *ngIf="showResponsiveNav" class="responsiveNav">
+        <div class="d-flex flex-row-reverse justify-content-between align-items-center">
+          <button class="btnShowModal " type="button" (click)="showResponsiveNav = !showResponsiveNav" >
+            <i class="fa fa-bars"></i>
+          </button>
+          <a style="display: flex" class="mx-2" [routerLink]="['/home']">
+            <a class="svgImg" ><svg xmlns="http://www.w3.org/2000/svg" style="fill: brown"  width="30" height="30"  viewBox="0 0 24 24"><path d="M16 11c0 2.209-1.791 4-4 4s-4-1.791-4-4v-7c0-2.209 1.791-4 4-4s4 1.791 4 4v7zm4-2v2c0 4.418-3.582 8-8 8s-8-3.582-8-8v-2h2v2c0 3.309 2.691 6 6 6s6-2.691 6-6v-2h2zm-7 13v-2h-2v2h-4v2h10v-2h-4z"/></svg></a>
+            <a class="logo" style="color: #fff;">Etklm</a>
+          </a>
+        </div>
+        <div class="mancyNavLinksSm">
+          <ul>
+            <li class="link"  >
+              <a class=""   (click)="showResponsiveNav = !showResponsiveNav"   routerLinkActive="active"  [routerLink]="['login']" >Login <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="link">
+              <a class=""   (click)="showResponsiveNav = !showResponsiveNav"   routerLinkActive="active" [routerLink]="['register']"   >Register</a>
+            </li>
+            <li class="link">
+              <a class=" "  (click)="showResponsiveNav = !showResponsiveNav" (click)="contact = true; about = false"   >Contact Us</a>
+            </li>
+            <li class="link">
+              <a class=" "   (click)="showResponsiveNav = !showResponsiveNav"  (click)="about = true; contact = false"  >About </a>
+            </li>
+            <li class="link">
+            </li>
+          </ul>
+        </div>
       </div>
-     <!-- </div> -->
+      <div class="container container-mobile mt-5" *ngIf="!contact && !about" style="color: #fff">
+        <div class="row">
+          <div class="col-md-12">
+            Get honest feedback from your coworkers and friends<br><br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>At work</h4>
+            <ul>
+              <li>Enhance your areas of strength</li>
+              <li>Strengthen Areas for Improvement</li>
+            </ul>
+          </div>
+
+          <div class="col-md-6">
+            <h4>With Your Friends</h4>
+            <ul>
+              <li>Improve your friendship by discovering your strengths and areas for improvement</li>
+              <li>Let your friends be honest with you</li>
+            </ul>
+          </div>
+        </div>
+        <br>
+      </div>
+      <app-contact-us style="color: #fff" *ngIf="contact"></app-contact-us>
+      <app-about style="color: #fff" *ngIf="about"></app-about>
+<footer class="center-block" style="background-color: transparent">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
+        <div class="copyright">
+          Etklm 2018 ©
+          <a class="ml-1"><i class="fa fa-twitter"></i></a>
+          <a class="ml-1"><i class="fa fa-facebook-square"></i></a>
+          <a class="ml-1"><i class="fa fa-instagram"></i></a> -
+          <a class="ml-1">Privacy</a>  -
+          <a class="ml-1" >Terms</a>
+
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-2 col-md-4 col-lg-4">
+        <div>
+          <a class="spacer language">العربية</a><a class="spacer language" >English</a>
+        </div>
+      </div>
+    </div>
   </div>
+</footer>
+</div>
 </div>

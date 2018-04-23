@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="background-color: #d9e8f3;">
 <head>
   <meta charset="utf-8">
   <title>Etklm</title>
@@ -27,19 +27,36 @@
   <script>
       new WOW().init();
 </script>
+  <style>
+
+    .spanCenter{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    @media (max-width: 760px) {
+      .spanCenter{
+        font-size: 10px;
+        align-content: center;
+      }
+    }
+  </style>
 </head>
 <body >
   <div class="overlay">
-    <div style="background-color: #f5f8fa;">
-      <app-root></app-root>
+    <div style="background-color: #d9e7f3;">
+      <app-root><span class="spanCenter">L  O  A  D  I  N  G ...</span></app-root>
     </div>
   </div>
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
   <script src="assets/jquery-3.2.1.min.js"></script>
   <!--<script src="assets/bootstrap.min.js"></script>-->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+  <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script src="//connect.facebook.net/en_US/all.js"></script>
 </body>
 </html>
