@@ -2,7 +2,7 @@
 <div class="container view px-4">
     <div class="row">
                 <div class="text-center nain info col-md-12 mb-4" style="background-color: white; border-radius: 6px" >
-                    <img (click)="openModal3(template2)"  class="profile-img" style="cursor: pointer" src="../../assets/avatar/avatar.png">
+                    <img tooltip="View Photo" (click)="openModal3(template2)"  class="profile-img" style="cursor: pointer" src="../../assets/avatar/avatar.png">
                         <h5 class="panel-title mt-2">
                             <span class="text-inheritr ">
                               <i [routerLink]="['/home/settings']" style="color: #0f3659; cursor:pointer;" tooltip="Settings" class="fa fa-cog"></i></span>
@@ -74,7 +74,7 @@
   </div>
   </div>
   <div class="modal-footer">
-    <button  type="button" class="btn shift-submit upload" onclick="uploadPhoto()">Upload</button>
-    <button  type="button"  class="btn shift-submit remove" data-dismiss="modal" onclick="removePhoto()">Remove Photo</button>
+    <button  type="button" class="btn shift-submit upload" [ladda]="laddaLoader"  (click)="uploadPhoto()">Upload</button>
+    <button  type="button"  class="btn shift-submit remove" data-dismiss="modal" (click)="removePhoto()">Remove Photo</button>
   </div>
 </ng-template>

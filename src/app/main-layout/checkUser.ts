@@ -25,6 +25,7 @@ export class CheckUserService {
         // err => {
     } else {
         localStorage.clear();
+        sessionStorage.clear();
         this.router.navigate(['/login']);
       }
     }

@@ -9,11 +9,20 @@ import {emailRegex} from '../../../app/shared/global-constatnts';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent  extends Validation implements OnInit {
+  avatarSrc: any;
+  avatarFile: any;
 
   form: FormGroup;
-  asyncErrorMsg: string; // async error message from api
-  laddaLoader: boolean; // ladda loading button indicator
-
+  asyncErrorMsg: string;
+  laddaLoader: boolean;
+  laddaLoader2 = false;
+  acceptedAvatarFileTypes = [         // list of accepted file types for the avatar to be uplaoded
+    'image/jpeg',
+    'image/png',
+    'image/jpg',
+    'image/gif',
+    'image/svg'
+  ];
   constructor(private iformBuilder: FormBuilder,
     private irouter: Router) {
 
@@ -23,7 +32,6 @@ export class RegisterComponent  extends Validation implements OnInit {
     localStorage.removeItem('registrationToken');
     this.form = this.formBuilder.group({
       firstName: ['', [Validators.maxLength(20), Validators.minLength(3)]],
-      profile_photo: ['' ],
       lastName: ['', [Validators.maxLength(20), Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.pattern(emailRegex)]],
       password: ['', [Validators.minLength(8), Validators.required]],
@@ -41,5 +49,19 @@ export class RegisterComponent  extends Validation implements OnInit {
   }
   onSubmit() {
     this.laddaLoader = true;
+    console.log('form', this.form.value);
   }
+  uploadNewAvatar(event) {
+    if (event.target.files[0]) {
+      for (const type of this.acceptedAvatarFileTypes) {
+        if (event.target.files[0].type === type) {
+          if (event.target.files[0].size <= 2097152) {
+            event.preventDefault();
+            this.avatarFile = event.target.files[0];
+            console.log('file', this.avatarFile);
+
+          }
+        }
+      }
 }
+

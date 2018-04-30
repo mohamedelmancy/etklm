@@ -1,0 +1,38 @@
+<div class="container mt-5 view px-4">
+  <div class="row">
+    <div class="text-center nain info col-md-12 mb-4" style="background-color: white; border-radius: 6px" >
+      <img   class="profile-img" style="cursor: pointer" src="../../assets/avatar/avatar.png">
+      <h5 class="panel-title mt-2">
+        <a class="user_name" >User_name</a>
+      </h5>
+        <img (click)="startRecording = !startRecording; check()" src="../../assets/avatar/bnbnbn.png" class="text-center soundcloud mb-5">
+      <audio class="mt-5" *ngIf="doneRecording" controls>
+        <source src="../../assets/dd.mp4" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
+        <div class="row">
+          <div class="col-md-12 input-group-shift" [ngClass]="validateGroup('message')">
+            <div  class="input-group-shift">
+              <textarea  formControlName="message" placeholder="Leave a constructive message :)" rows="5" maxlength="700" class="form-control remove-border" style="background:none; border: 1px solid #0a2843; font-size: 14px;"></textarea>
+            </div>
+            <div *ngIf="validateControl('message')" class="form-control-feedback">
+              <p  *ngIf="validateError('message','maxlength')" class="text-center validate-shift mt-2"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Enter Maximum Number of 700 characters</p>
+              <p  *ngIf="validateError('message','required')"  class="text-center validate-shift mt-2"><i
+                class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Enter Your Message</p>
+            </div>
+          </div>
+          <div class="col-md-12 pt-4 pb-4">
+            <button  [ladda]="laddaLoader" data-spinner-color="grey"
+                     [disabled]="form.invalid" type="submit" (click)="onSubmit()"
+                     class="shift-submit"
+                     style="margin-top:5px;" >Send<i class="fa fa-send-o ml-1"></i> </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

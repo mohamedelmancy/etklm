@@ -19,10 +19,10 @@
               <a class="navItem"    routerLinkActive="active" [routerLink]="['register']" >Register</a>
             </li>
             <li class="pt-3">
-              <a class=" navItem"   routerLinkActive="active" (click)="contact = true; about = false"  >Contact Us</a>
+              <a class=" navItem"   routerLinkActive="active" (click)="contact = true; about = false;terms=false;privacy=false"  >Contact Us</a>
             </li>
             <li class="pt-3">
-              <a class=" navItem"   routerLinkActive="active"  (click)="about = true; contact = false" >About </a>
+              <a class=" navItem"   routerLinkActive="active"  (click)="about = true; contact = false; terms=false;privacy=false" >About </a>
             </li>
             <li class="pt-3">
             </li>
@@ -48,17 +48,17 @@
               <a class=""   (click)="showResponsiveNav = !showResponsiveNav"   routerLinkActive="active" [routerLink]="['register']"   >Register</a>
             </li>
             <li class="link">
-              <a class=" "  (click)="showResponsiveNav = !showResponsiveNav" (click)="contact = true; about = false"   >Contact Us</a>
+              <a class=" "  (click)="showResponsiveNav = !showResponsiveNav" (click)="contact = true; about = false; terms=false;privacy=false"   >Contact Us</a>
             </li>
             <li class="link">
-              <a class=" "   (click)="showResponsiveNav = !showResponsiveNav"  (click)="about = true; contact = false"  >About </a>
+              <a class=" "   (click)="showResponsiveNav = !showResponsiveNav"  (click)="about = true; contact = false;terms=false;privacy=false"  >About </a>
             </li>
             <li class="link">
             </li>
           </ul>
         </div>
       </div>
-      <div class="container container-mobile mt-5" *ngIf="!contact && !about" style="color: #fff">
+      <div class="container container-mobile mt-5" *ngIf="!contact && !about && !terms && !privacy" style="color: #fff">
         <div class="row">
           <div class="col-md-12">
             Get honest feedback from your coworkers and friends<br><br>
@@ -85,6 +85,8 @@
       </div>
       <app-contact-us style="color: #fff" *ngIf="contact"></app-contact-us>
       <app-about style="color: #fff" *ngIf="about"></app-about>
+      <app-terms style="color: #fff"  *ngIf="terms"></app-terms>
+      <app-privacy style="color: #fff"  *ngIf="privacy"></app-privacy>
 <footer class="center-block" style="background-color: transparent">
   <div class="container">
     <div class="row">
@@ -94,8 +96,8 @@
           <a class="ml-1"><i class="fa fa-twitter"></i></a>
           <a class="ml-1"><i class="fa fa-facebook-square"></i></a>
           <a class="ml-1"><i class="fa fa-instagram"></i></a> -
-          <a class="ml-1">Privacy</a>  -
-          <a class="ml-1" >Terms</a>
+          <a class="ml-1" (click)="about = false; contact = false;terms=false;privacy=true" >Privacy</a>  -
+          <a class="ml-1" (click)="about = false; contact = false;terms=true;privacy=false"  >Terms</a>
 
         </div>
       </div>

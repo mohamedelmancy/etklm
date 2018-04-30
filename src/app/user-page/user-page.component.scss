@@ -1,0 +1,11 @@
+@import '../../scss/main';
+@import '../messages/my-account/my-account.component';
+.soundcloud{
+  width: 15%;
+  cursor: pointer;
+}
+@media (max-width: 360px) {
+  .soundcloud{
+    width: 35%;
+  }
+}

@@ -104,6 +104,7 @@ export class MessagesComponent extends Validation implements OnDestroy, OnInit {
   }
   uploadPhoto() {
     this.laddaLoader2 = true;
+    this.laddaLoader = true;
     this.uploadAvatarSuccess = 'success';
   }
 

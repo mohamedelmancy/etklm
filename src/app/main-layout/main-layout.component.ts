@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {CheckUserService} from './checkUser';
 import {Http, Response} from '@angular/http';
-import {Router} from '@angular/router';
-import {ContactUsComponent} from "../contact-us/contact-us.component";
-import {AboutComponent} from "../about/about.component";
+import {Router, UrlTree, PRIMARY_OUTLET} from '@angular/router';
+
 @Component({
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.scss']
 })
 export class MainLayoutComponent implements OnInit {
-  private isAuthenticatedUserToken: boolean;
+  isAuthenticatedUserToken: boolean;
   showResponsiveNav = false;
-  hideNavBar = true;
   contact = false;
   about = false;
-  constructor(private checkUser: CheckUserService, private http: Http, private router: Router) {
+  userName: any;
+  privacy = false;
+  terms = false;
+  urlTree: UrlTree;
+  constructor(private checkUser: CheckUserService, private router: Router) {
     this.checkUser.authenticatedUserToken.subscribe(
       res => {
         if (res === true) {
@@ -30,6 +32,13 @@ export class MainLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.urlTree = this.router.parseUrl(this.router.url);
+    console.log(this.urlTree.root.children[PRIMARY_OUTLET].segments[1]);
+    this.userName = this.urlTree.root.children[PRIMARY_OUTLET].segments[2];
+    if (this.userName) {
+      this.router.navigate(['/user-page']);
+    }
+    // this.workflowId = Number(this.urlTree.root.children[PRIMARY_OUTLET].segments[2].path);
   }
   logout() {
     // this.http.post(this.rootUrl + '/api/auth/logout', {}, JwtAuth.jwtHeader())

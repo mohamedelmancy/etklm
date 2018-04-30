@@ -39,11 +39,11 @@
               </div>
             </div>
             <div style="  font-size: 12px; font-weight: 500;" class="col-12 text-left remember">
-                <input checked="checked" type="checkbox">
+                <input [checked]="rememberMe" (change)="rememberMe = !rememberMe" type="checkbox">
                 Remember Me
            </div>
             <div class="col-12">
-              <button type="submit" class="shift-submit" [disabled]="form.invalid"
+              <button type="button" class="shift-submit" [disabled]="form.invalid"
               [ladda]="laddaLoader"  data-spinner-color="grey"  (click)="onSubmit()">Login
               </button>
             </div>

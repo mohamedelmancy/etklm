@@ -24,6 +24,9 @@ import {AccordionModule, AlertModule, BsDropdownModule, CarouselModule, ModalMod
 import { FacebookModule } from 'ngx-facebook';
 import {AboutComponent} from './about/about.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
+import { UserPageComponent } from './user-page/user-page.component';
+import { TermsComponent } from './terms/terms.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 // import {AccordionModule, BsDropdownModule, CarouselModule, ModalModule, TooltipModule} from 'ngx-bootstrap';
 
@@ -38,6 +41,9 @@ import {ContactUsComponent} from './contact-us/contact-us.component';
     RegisterComponent,
     AboutComponent,
     ContactUsComponent,
+    UserPageComponent,
+    TermsComponent,
+    PrivacyComponent,
 
 
     ],

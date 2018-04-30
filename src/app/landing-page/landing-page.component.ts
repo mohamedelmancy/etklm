@@ -14,6 +14,8 @@ export class LandingPageComponent implements OnInit {
   showCollapsed = false;
   showInfoOne = false;
   showInfoTwo = false;
+  terms = false;
+  privacy = false;
   allOrganizations = [];
   searchKeyword = '';
   searchInputFocused: boolean;

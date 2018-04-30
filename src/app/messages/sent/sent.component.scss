@@ -1,4 +1,5 @@
 @import '../received/received.component';
+@import '../../../scss/main';
 @media screen and (max-width: 460px) {
   .shift-submit {
     width: 33% !important;
@@ -10,4 +11,7 @@
 }
 .sentMessage:hover {
   background-color: #d9e8f3;
+}
+.list-group-item{
+  background-color: $secondaryColor;
 }

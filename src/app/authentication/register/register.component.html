@@ -9,11 +9,11 @@
               <label for="firstname" class="label-shift">First name</label>
               <input type="text" id="firstname" formControlName="firstName" class="shift-input" placeholder="enter your first name here...">
             <div *ngIf="validateControl('firstName')" class="">
-              <p *ngIf="validateError('firstName','maxlength')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('firstName','maxlength')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter maximum of 20 characters</p>
-              <p *ngIf="validateError('firstName','minlength')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('firstName','minlength')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter minimum of 3 characters</p>
-              <p *ngIf="validateError('firstName','required')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('firstName','required')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
             </div>
           </div>
@@ -22,11 +22,11 @@
               <label for="lastname" class="label-shift">Last name</label>
               <input type="text" id="lastname" formControlName="lastName" class="shift-input" placeholder=" enter your last name here...">
             <div *ngIf="validateControl('lastName')" class="">
-              <p *ngIf="validateError('lastName','maxlength')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('lastName','maxlength')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter maximum of 20 characters</p>
-              <p *ngIf="validateError('lastName','minlength')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('lastName','minlength')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter minimum of 3 characters</p>
-              <p *ngIf="validateError('lastName','required')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('lastName','required')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
             </div>
           </div>
@@ -35,9 +35,9 @@
             <label for="email" class="label-shift"> Email</label>
             <input type="text" formControlName="email" class="shift-input" id="email" placeholder="enter your email here...">
             <div *ngIf="validateControl('email')" class="">
-              <p *ngIf="validateError('email','pattern')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('email','pattern')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter a valid email format</p>
-              <p *ngIf="validateError('email','required')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('email','required')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
             </div>
           </div>
@@ -46,9 +46,9 @@
             <label for="password" class="label-shift"> Password </label>
             <input type="password" formControlName="password" class="shift-input" id="password" placeholder="enter your Password here...">
             <div *ngIf="validateControl('password')" class="">
-              <p *ngIf="validateError('password','minlength')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('password','minlength')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Enter minimum of 8 characters</p>
-              <p *ngIf="validateError('password','required')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('password','required')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
             </div>
           </div>
@@ -59,25 +59,27 @@
 
             <input type="password" id="repass" formControlName="rePassword" class="shift-input" placeholder="repeat password...">
             <div *ngIf="validateControl('rePassword')" class="">
-              <p *ngIf="validateError('rePassword','matchFailed')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('rePassword','matchFailed')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Passwords do not match</p>
-              <p *ngIf="validateError('rePassword','required')" class="text-left validate-shift"><i
+              <p *ngIf="validateError('rePassword','required')" class="validate-shift"><i
                 class="fa fa-exclamation-triangle" aria-hidden="true"></i>Required field</p>
             </div>
           </div>
-          <div class="input-group-shift my-2" [ngClass]="validateGroup('profile_photo')">
-              <label class="label-shift">Choose profile</label>
-                <label for="profile" style="text-align: center" class="shift-input"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
+          <div class="input-group-shift my-2 text-left">
+              <label class="label-shift pl-1">Choose profile</label>
+                <label for="profile" style="text-align: center;width: 11%; cursor: pointer" class="shift-input ml-2"><i class="fa fa-cloud-upload" aria-hidden="true"></i>
                   Browse</label>
-                <input type="file" formControlName="profile_photo" style="display: none" id="profile" >
+                <input type="file" id="profile" accept="image/*" style="display: none" (change)="uploadNewAvatar($event)" >
+            <i *ngIf="avatarFile" class="fa fa-check"></i>
+            <!--<i *ngIf="!avatarFile" class="fa fa-times"></i>-->
             </div>
           <div *ngIf="asyncErrorMsg" class="">
-            <p class="text-left validate-shift"><i
+            <p class="validate-shift"><i
               class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{asyncErrorMsg}}</p>
           </div>
           <div class="">
               <button  class="shift-submit" [ladda]="laddaLoader" data-spinner-color="grey"
-                      [disabled]="form.invalid" type="submit" (click)="onSubmit()">
+                      [disabled]="form.invalid" type="button" (click)="onSubmit()">
                 <span>Submit</span>
               </button>
             </div>

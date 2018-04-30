@@ -8,6 +8,11 @@ import { LoginComponent } from './authentication/login/login.component';
 import {RegisterComponent} from './authentication/register/register.component';
 import {AboutComponent} from './about/about.component';
 import {ContactUsComponent} from './contact-us/contact-us.component';
+import {ResetPasswordComponent} from './authentication/reset-password/reset-password.component';
+import {UserPageComponent} from './user-page/user-page.component';
+import { TermsComponent } from './terms/terms.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+
 export const AppRouting: ModuleWithProviders = RouterModule.forRoot([
     {path: '', component: LandingPageComponent, canActivate: [LandingGuard]},
     {
@@ -35,5 +40,21 @@ export const AppRouting: ModuleWithProviders = RouterModule.forRoot([
      {
       path: 'contact-us',
       component: ContactUsComponent,
+     },
+    {
+      path: 'reset-password',
+      component: ResetPasswordComponent,
+     },
+     {
+      path: 'user_page/:user_name',
+      component: UserPageComponent,
+     },
+     {
+      path: 'terms',
+      component: TermsComponent,
+     },
+     {
+      path: 'privacy',
+      component: PrivacyComponent,
      },
   ]);

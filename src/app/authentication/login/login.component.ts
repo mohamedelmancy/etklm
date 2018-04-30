@@ -17,7 +17,7 @@ export class LoginComponent extends Validation implements OnInit {
   form: FormGroup;
   asyncErrorMsg: string; // async error message from api
   laddaLoader: boolean; // ladda loading button indicator
-
+  rememberMe = true;
   constructor(private iformBuilder: FormBuilder,
               private irouter: Router,
               private fb: FacebookService,
@@ -42,11 +42,12 @@ export class LoginComponent extends Validation implements OnInit {
   }
 
   onSubmit() {
+    console.log('form', this.form.value)
     this.laddaLoader = true;
     this.loginService.login(this.form.value);
     // .subscribe(
     //   data => {
-    localStorage.setItem('currentUserToken', this.loginService.login(this.form.value));
+    this.setUserToken(this.loginService.login(this.form.value));
     // },
     // error => {
     //   this.laddaLoader = false;
@@ -63,6 +64,15 @@ export class LoginComponent extends Validation implements OnInit {
   //   );
   // }
 
+  setUserToken(token) {
+    sessionStorage.clear();
+    localStorage.clear();
+    if (this.rememberMe === true) {
+      localStorage.setItem('currentUserToken', token);
+    } else {
+      sessionStorage.setItem('currentUserToken', token);
+    }
+  }
   // me(userId, accessToken) {
   //   this.fb.api(
   //     '/' + userId + '?fields=id,name,first_name,email,gender,picture.width(150).height(150),age_range,friends',

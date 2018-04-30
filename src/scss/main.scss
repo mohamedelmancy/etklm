@@ -3,7 +3,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,700,900&subset=latin-ext');
 $primaryColor:              #0a2743;
-$secondaryColor:            #ce93d8;
+$secondaryColor:            #d9e8f3;
 $dangerColor:               #e25950;
 $successColor:              #bdea74;
 $textShadow:                0 1px 2px rgba(0, 0, 0, 0.5);
@@ -175,6 +175,8 @@ margin-top:35px;
 :host /deep/ .tooltip-inner {
   font-size:12px;
   border-radius: 6px;
+  background-color: #021933;
+  color: white;
 }
 .modal-fix{
   margin-top: 50px !important;
@@ -184,3 +186,14 @@ margin-top:35px;
     padding-top: 8px;
   padding-right: 10px;
   }
+.shift-submit:hover{
+  background-color: $primaryColor;
+  color: #fff;
+}
+.list-group-item{
+  margin-bottom: 20px;
+}
+.list-group-item:hover{
+  background-color: $secondaryColor;
+
+}

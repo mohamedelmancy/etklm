@@ -65,16 +65,16 @@
   <div class="mancyNavLinks">
     <ul>
       <li class="pt-3">
-        <a class="navItem"   routerLinkActive="active" (click)="about = false; contact = false" [routerLink]="['/home']" >Messages </a>
+        <a class="navItem"   routerLinkActive="active" (click)="about = false; contact = false; terms = false; privacy = false" [routerLink]="['/home']" >Messages </a>
       </li>
       <li class="pt-3">
-        <a class="navItem"    routerLinkActive="active" (click)="contact = false; about = false"  [routerLink]="['/home/settings']"  >Settings</a>
+        <a class="navItem"    routerLinkActive="active" (click)="contact = false; about = false; terms = false; privacy = false"  [routerLink]="['/home/settings']"  >Settings</a>
       </li>
       <li class="pt-3">
-        <a class=" navItem"   routerLinkActive="active"  (click)="contact = true; about = false">Contact Us</a>
+        <a class=" navItem"   routerLinkActive="active"  (click)="contact = true; about = false; terms = false; privacy = false">Contact Us</a>
       </li>
       <li class="pt-3">
-        <a class=" navItem"   routerLinkActive="active" (click)="about = true; contact = false"  >About </a>
+        <a class=" navItem"   routerLinkActive="active" (click)="about = true; contact = false; terms = false; privacy = false"  >About </a>
       </li>
       <li class="pt-3">
         <a class=" navItem"   style="cursor: pointer; color: red" (click)="logout()" >Log out</a>
@@ -98,16 +98,16 @@
   <div class="mancyNavLinksSm">
     <ul>
       <li class="link"  >
-        <a class=""   (click)="showResponsiveNav = !showResponsiveNav"   routerLinkActive="active" (click)="about = false; contact = false" [routerLink]="['/home']" >Messages <span class="sr-only">(current)</span></a>
+        <a class=""   (click)="showResponsiveNav = !showResponsiveNav"   routerLinkActive="active" (click)="about = false; contact = false;terms = false; privacy = false" [routerLink]="['/home']" >Messages <span class="sr-only">(current)</span></a>
       </li>
       <li class="link">
-        <a class=""   (click)="showResponsiveNav = !showResponsiveNav"   routerLinkActive="active" (click)="about = false; contact = false" [routerLink]="['/home/settings']"  >Settings</a>
+        <a class=""   (click)="showResponsiveNav = !showResponsiveNav"   routerLinkActive="active" (click)="about = false; contact = false;terms = false; privacy = false" [routerLink]="['/home/settings']"  >Settings</a>
       </li>
       <li class="link">
-        <a class=" "  (click)="showResponsiveNav = !showResponsiveNav"  routerLinkActive="active"  (click)="contact = true; about = false" >Contact Us</a>
+        <a class=" "  (click)="showResponsiveNav = !showResponsiveNav"  routerLinkActive="active"  (click)="contact = true; about = false; terms = false; privacy = false" >Contact Us</a>
       </li>
       <li class="link">
-        <a class=" "   (click)="showResponsiveNav = !showResponsiveNav"   routerLinkActive="active"  (click)="about = true; contact = false"  >About </a>
+        <a class=" "   (click)="showResponsiveNav = !showResponsiveNav"   routerLinkActive="active"  (click)="about = true; contact = false;terms = false; privacy = false"  >About </a>
       </li>
       <li class="link">
         <a class=" "  (click)="showResponsiveNav = !showResponsiveNav"   style="cursor: pointer; color: red" (click)="logout()" >Log out</a>
@@ -117,7 +117,9 @@
 </div>
 <app-about *ngIf="about"></app-about>
 <app-contact-us *ngIf="contact"></app-contact-us>
-       <div *ngIf="isAuthenticatedUserToken && !contact && !about" >
+<app-terms *ngIf="terms"></app-terms>
+<app-privacy *ngIf="privacy"></app-privacy>
+       <div *ngIf="isAuthenticatedUserToken && !contact && !about && !terms && !privacy" >
            <router-outlet></router-outlet>
          </div>
       <footer class="center-block">
@@ -129,8 +131,8 @@
                            <a class="ml-1"><i class="fa fa-twitter"></i></a>
                            <a class="ml-1"><i class="fa fa-facebook-square"></i></a>
                            <a class="ml-1"><i class="fa fa-instagram"></i></a> -
-                            <a class="ml-1">Privacy</a>  -
-                            <a class="ml-1" >Terms</a>
+                            <a class="ml-1" (click)="privacy=true; terms=false; contact=false; about=false">Privacy</a>  -
+                            <a class="ml-1" (click)="privacy=false; terms=true; contact=false; about=false">Terms</a>
 
                         </div>
                     </div>

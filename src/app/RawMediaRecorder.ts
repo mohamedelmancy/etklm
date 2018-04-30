@@ -31,8 +31,8 @@ class RawMediaRecorder {
   }
 
    loadSound(url) {
-     var context = new AudioContext();
-    let  request = new XMLHttpRequest();
+     const context = new AudioContext();
+    const  request = new XMLHttpRequest();
     request.open('GET', url, true);
     request.responseType = 'arraybuffer';
 
@@ -45,7 +45,7 @@ class RawMediaRecorder {
     request.send();
   }
    playSound(songBuffer) {
-    var source = this.ctx.createBufferSource();
+    const source = this.ctx.createBufferSource();
     // creates a sound source
     source.buffer = this.songBuffer;
     // tell the source which sound to play
